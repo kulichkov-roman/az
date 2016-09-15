@@ -1,21 +1,21 @@
 <?php
 
-namespace YT;
+namespace AZ;
 
 /**
- * Автозагрузчик для пространства YT
+ * Автозагрузчик для пространства AZ
  *
  * Class AutoLoader
  *
  * @author Roman Kulichkov <roman@kulichkov.pro>
  *
- * @package YT
+ * @package AZ
  */
 class AutoLoader
 {
 	const DEBUG_MODE = false;
 
-	const PROJECT_NAMESPACE = 'YT';
+	const PROJECT_NAMESPACE = 'AZ';
 
 	static private $recursiveSearch = true;
 
@@ -114,7 +114,7 @@ class AutoLoader
 	 */
 	private static function logToFile($data)
 	{
-		$file = fopen(self::getBasePath() . '/YTAutoLoad.log', 'a');
+		$file = fopen(self::getBasePath() . '/AZAutoLoad.log', 'a');
 
 		flock($file, LOCK_EX);
 		fwrite($file, date('d.m.Y H:i:s') . ': ' . $data . PHP_EOL);

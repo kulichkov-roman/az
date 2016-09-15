@@ -5,15 +5,90 @@
 \YT\Environment\EnvironmentManager::getInstance()->addConfig(
 	new \YT\Environment\Configuration\CommonConfiguration(
 		array(
-			'catalogIBlockId' => 3,
+			'catalogIBlockType'      => 'dynamic_content',
+			'catalogIBlockId'        => 3,
+			'catalogUrl'             => '/catalog/',
 			'defaultSiteTemplateUrl' => '/local/templates/.default/',
+			'orderPageMakeUrl'       => '/personal/cart/order/make/',
+			'orderPageUrl'           => '/personal/cart/',
+			'profilePageUrl'         => '/personal/profile/',
+			'personalPageUrl'        => '/personal/',
+			'basketPageUrl'          => '/personal/cart/',
+			'orderPaymentPageUrl'    => '/personal/cart/order/payment/',
+			'authPageUrl'            => '/personal/profile/',
+			'registerPageUrl'        => '/auth/?register=yes',
+			'forgotPassPageUrl'      => '/auth/?forgot_password=yes',
+
+			'pageClassesTemplates'   => array(
+				'/personal/profile/' => 'private user-info',
+				'/personal/'         => 'private',
+			),
+
+			'bodyClassesTemplates'   => array(
+				'404' => 'p404',
+			),
+
+			'measureElement' => array(
+				'weight' => 'кг',
+				'item'   => 'шт',
+				'port'   => 'пр'
+			),
+			'typeElement' => array(
+				'Весовой по 100' => 'weight',
+				'Весовой по 10'  => 'weight',
+				'Штучный'  => 'item',
+				'Порция'   => 'port'
+			),
+			'measureCurrency' => array(
+				'RUB' => 'руб',
+			),
+			'measurePriceElement' => array(
+				'weight' => '1 кг',
+				'item'   => '1 шт',
+				'port'   => '1 пр'
+			),
+			'w250crPlugId' => '',
+			'w146crPlugId' => '',
+			'w362whPlugId' => '',
+			'w50whPlugId'  => '',
+			'priceBaseTypeID' => 1,
+			'priceBaseTypeCode' => 'BASE'
 		)
 	)
 );
 
 if(\Bitrix\Main\Loader::includeModule('itconstruct.resizer'))
 {
-    itc\Resizer::addPreset('interiorDetail', array(
+	itc\Resizer::addPreset('w146cr', array(
+			'mode' => 'crop',
+			'width' => 146,
+			'height' => 146,
+			'type' => 'jpg'
+		)
+	);
+	itc\Resizer::addPreset('w250cr', array(
+			'mode' => 'crop',
+			'width' => 250,
+			'height' => 250,
+			'type' => 'jpg'
+		)
+	);
+	itc\Resizer::addPreset('w362wh', array(
+			'mode' => 'crop',
+			'width' => 362,
+			'height' => 295,
+			'type' => 'jpg'
+		)
+	);
+	itc\Resizer::addPreset('w50cr', array(
+			'mode' => 'crop',
+			'width' => 50,
+			'height' => 50,
+			'type' => 'jpg'
+		)
+	);
+
+	itc\Resizer::addPreset('interiorDetail', array(
             'mode' => 'width',
             'width' => '1200',
             'height' => null,
