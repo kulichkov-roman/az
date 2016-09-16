@@ -9,13 +9,6 @@
 			'catalogIBlockId'        => 3,
 			'catalogUrl'             => '/catalog/',
 			'defaultSiteTemplateUrl' => '/local/templates/.default/',
-			'orderPageMakeUrl'       => '/personal/cart/order/make/',
-			'orderPageUrl'           => '/personal/cart/',
-			'profilePageUrl'         => '/personal/profile/',
-			'personalPageUrl'        => '/personal/',
-			'basketPageUrl'          => '/personal/cart/',
-			'orderPaymentPageUrl'    => '/personal/cart/order/payment/',
-			'authPageUrl'            => '/personal/profile/',
 			'registerPageUrl'        => '/auth/?register=yes',
 			'forgotPassPageUrl'      => '/auth/?forgot_password=yes',
 
@@ -28,31 +21,10 @@
 				'404' => 'p404',
 			),
 
-			'measureElement' => array(
-				'weight' => 'кг',
-				'item'   => 'шт',
-				'port'   => 'пр'
-			),
-			'typeElement' => array(
-				'Весовой по 100' => 'weight',
-				'Весовой по 10'  => 'weight',
-				'Штучный'  => 'item',
-				'Порция'   => 'port'
-			),
-			'measureCurrency' => array(
-				'RUB' => 'руб',
-			),
-			'measurePriceElement' => array(
-				'weight' => '1 кг',
-				'item'   => '1 шт',
-				'port'   => '1 пр'
-			),
 			'w250crPlugId' => '',
 			'w146crPlugId' => '',
 			'w362whPlugId' => '',
 			'w50whPlugId'  => '',
-			'priceBaseTypeID' => 1,
-			'priceBaseTypeCode' => 'BASE'
 		)
 	)
 );
