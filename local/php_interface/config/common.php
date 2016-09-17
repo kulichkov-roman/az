@@ -5,8 +5,17 @@
 \YT\Environment\EnvironmentManager::getInstance()->addConfig(
 	new \YT\Environment\Configuration\CommonConfiguration(
 		array(
-			'catalogIBlockType'      => 'dynamic_content',
-			'catalogIBlockId'        => 3,
+			'dynamicContentIBlockType'  => 'dynamic_content',
+			'seoContentIBlockType'      => 'seo_content',
+			'newsIBlockId'           => 1,
+			'faqIBlockId'            => 3,
+			'articlesIBlockId'       => 2,
+			'catalogIBlockId'        => 4,
+			'seoSecIBlockId'         => 5,
+			'catalogPageUrl'         => '/catalog/',
+			'articlesPageUrl'        => '/articles/',
+			'faqPageUrl'             => '/faq/',
+			'newsPageUrl'            => '/news/',
 			'catalogUrl'             => '/catalog/',
 			'defaultSiteTemplateUrl' => '/local/templates/.default/',
 			'registerPageUrl'        => '/auth/?register=yes',

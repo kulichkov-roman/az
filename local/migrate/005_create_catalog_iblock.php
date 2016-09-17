@@ -1,6 +1,6 @@
 <?php
 /**
- * Создает инфоблок «Телефоны»
+ * Создает инфоблок «Каталог»
  *
  * @global $APPLICATION CMain
  */
@@ -14,7 +14,6 @@ define('STOP_STATISTICS', true);
 define('SITE_ID', 's1');
 
 if (empty($_SERVER['DOCUMENT_ROOT'])) {
-    $_SERVER['HTTP_HOST'] = 'ksk.kulichkov.pro';
     $_SERVER['DOCUMENT_ROOT'] = realpath(__DIR__ . '/../../');
 }
 
@@ -30,11 +29,11 @@ if (!CModule::IncludeModule('iblock')) {
 }
 
 /**
- * Создает инфоблок «Телефоны»
+ * Создает инфоблок «Каталог»
  *
- * Class CreateHeroSliderIBlockMigration
+ * Class CreateCatalogIBlockMigration
  */
-class CreatePhoneIBlockMigration extends AbstractIBlockMigration
+class CreateCatalogIBlockMigration extends AbstractIBlockMigration
 {
     /**
      * {@inheritdoc}
@@ -47,8 +46,8 @@ class CreatePhoneIBlockMigration extends AbstractIBlockMigration
             $this->createIBlock(
                 array(
                     'ACTIVE'           => 'Y',
-                    'NAME'             => 'Телефоны: футер',
-                    'CODE'             => 'phoneFooter',
+                    'NAME'             => 'Каталог',
+                    'CODE'             => 'catalog',
                     'IBLOCK_TYPE_ID'   => 'dynamic_content',
                     'SITE_ID'          => array('s1'),
                     'SORT'             => 500,
@@ -59,7 +58,7 @@ class CreatePhoneIBlockMigration extends AbstractIBlockMigration
             );
 
             $logger->log(
-                sprintf('IBlock has been created. Id: "%s". Add to "phoneFooterIBlockId"', $this->iblockId)
+                sprintf('IBlock has been created. Id: "%s". Add to "catalogIBlockId"', $this->iblockId)
             );
         } catch (\YT\Exception\Data\Migration\MigrationException $exception) {
             $logger->log(sprintf('ERROR: %s', $exception->getMessage()));
@@ -73,12 +72,14 @@ class CreatePhoneIBlockMigration extends AbstractIBlockMigration
     {
         $logger = new \YT\Tools\Logger\EchoLogger();
 
-        $this->deleteIBlock($environment->get('phoneFooterIBlockId'));
+        $environment = \YT\Environment\EnvironmentManager::getInstance();
+
+        $this->deleteIBlock($environment->get('catalogIBlockId'));
 
         $logger->log(sprintf('IBlock rewards has been removed. Id: "%s"', $this->iblockId));
     }
 }
 
-$migration = new CreatePhoneIBlockMigration();
+$migration = new CreateCatalogIBlockMigration();
 $migration->up();
 ?>

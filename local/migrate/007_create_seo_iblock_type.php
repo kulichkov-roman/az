@@ -1,6 +1,6 @@
 <?php
 /**
- * Создает инфоблок «Обратная связь»
+ * Создает инфоблок «SEO описания: разделов»
  *
  * @global $APPLICATION CMain
  */
@@ -14,7 +14,6 @@ define('STOP_STATISTICS', true);
 define('SITE_ID', 's1');
 
 if (empty($_SERVER['DOCUMENT_ROOT'])) {
-    $_SERVER['HTTP_HOST'] = 'ksk.kulichkov.pro';
     $_SERVER['DOCUMENT_ROOT'] = realpath(__DIR__ . '/../../');
 }
 
@@ -30,11 +29,11 @@ if (!CModule::IncludeModule('iblock')) {
 }
 
 /**
- * Создает инфоблок «Обратная связь»
+ * Создает инфоблок «SEO описания: разделов»
  *
- * Class CreateHeroSliderIBlockMigration
+ * Class CreateSeoIBlockMigration
  */
-class CreateFeedbackIBlockMigration extends AbstractIBlockMigration
+class CreateSeoIBlockMigration extends AbstractIBlockMigration
 {
     /**
      * {@inheritdoc}
@@ -47,9 +46,9 @@ class CreateFeedbackIBlockMigration extends AbstractIBlockMigration
             $this->createIBlock(
                 array(
                     'ACTIVE'           => 'Y',
-                    'NAME'             => 'Обратная связь',
-                    'CODE'             => 'feedback',
-                    'IBLOCK_TYPE_ID'   => 'dynamic_content',
+                    'NAME'             => 'Описание разделов',
+                    'CODE'             => 'seo_section_descriptions',
+                    'IBLOCK_TYPE_ID'   => 'seo_content',
                     'SITE_ID'          => array('s1'),
                     'SORT'             => 500,
                     'DESCRIPTION_TYPE' => 'text',
@@ -59,7 +58,7 @@ class CreateFeedbackIBlockMigration extends AbstractIBlockMigration
             );
 
             $logger->log(
-                sprintf('IBlock has been created. Id: "%s". Add to "feedbackIBlockId"', $this->iblockId)
+                sprintf('IBlock has been created. Id: "%s". Add to "seoSecIBlockId"', $this->iblockId)
             );
         } catch (\YT\Exception\Data\Migration\MigrationException $exception) {
             $logger->log(sprintf('ERROR: %s', $exception->getMessage()));
@@ -73,12 +72,14 @@ class CreateFeedbackIBlockMigration extends AbstractIBlockMigration
     {
         $logger = new \YT\Tools\Logger\EchoLogger();
 
-        $this->deleteIBlock($environment->get('feedbackIBlockId'));
+        $environment = \YT\Environment\EnvironmentManager::getInstance();
+
+        $this->deleteIBlock($environment->get('seoSecIBlockId'));
 
         $logger->log(sprintf('IBlock rewards has been removed. Id: "%s"', $this->iblockId));
     }
 }
 
-$migration = new CreateFeedbackIBlockMigration();
+$migration = new CreateSeoIBlockMigration();
 $migration->up();
 ?>

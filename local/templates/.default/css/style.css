@@ -813,7 +813,7 @@ select{
 	display:inline-block;
 	width:24px;
 	height:22px;
-	background:url(../images/card.png) no-repeat scroll;
+	background:url(../../../../images/card.png) no-repeat scroll;
 	vertical-align:middle;
 }
 .sr-news-art-item{

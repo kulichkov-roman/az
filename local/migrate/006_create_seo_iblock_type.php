@@ -1,6 +1,6 @@
 <?php
 /**
- * Создает инфоблок «Каталог: мясо и субпродукты»
+ * Создает тип инфоблока "SEO контент"
  *
  * @global $APPLICATION CMain
  */
@@ -14,7 +14,6 @@ define('STOP_STATISTICS', true);
 define('SITE_ID', 's1');
 
 if (empty($_SERVER['DOCUMENT_ROOT'])) {
-	$_SERVER['HTTP_HOST'] = 'ksk.kulichkov.pro';
 	$_SERVER['DOCUMENT_ROOT'] = realpath(__DIR__ . '/../../');
 }
 
@@ -30,11 +29,11 @@ if (!CModule::IncludeModule('iblock')) {
 }
 
 /**
- * Создает инфоблок «Слайдер»
+ * Создает тип инфоблока "SEO контент""
  *
- * Class CreateHeroSliderIBlockMigration
+ * Class CreateSeoIBlockTypeMigration
  */
-class CreateCatalogMeatIBlockMigration extends AbstractIBlockMigration
+class CreateSeoIBlockTypeMigration extends AbstractIBlockMigration
 {
 	/**
 	 * {@inheritdoc}
@@ -44,23 +43,24 @@ class CreateCatalogMeatIBlockMigration extends AbstractIBlockMigration
 		$logger = new \YT\Tools\Logger\EchoLogger();
 
 		try {
-			$this->createIBlock(
+			$this->createIBlockType(
 				array(
-					'ACTIVE'           => 'Y',
-					'NAME'             => 'Каталог: мясо и субпродукты',
-					'CODE'             => 'catalogMeat',
-					'IBLOCK_TYPE_ID'   => 'dynamic_content',
-					'SITE_ID'          => array('s1'),
-					'SORT'             => 500,
-					'DESCRIPTION_TYPE' => 'text',
-					'GROUP_ID'         => array('2' => 'R'),
-					'VERSION'          => 2,
+					'ID' => 'seo_content',
+					'SECTIONS' => 'Y',
+					'IN_RSS' => 'N',
+					'SORT' => 100,
+					'LANG' => array(
+						'en' => array(
+							'NAME' => 'SEO content',
+						),
+						'ru' => array(
+							'NAME' => 'SEO контент',
+						),
+					)
 				)
 			);
 
-			$logger->log(
-				sprintf('IBlock has been created. Id: "%s". Add to "catalogMeatIBlockId"', $this->iblockId)
-			);
+			$logger->log('IBlock type "SEO content" has been created');
 		} catch (\YT\Exception\Data\Migration\MigrationException $exception) {
 			$logger->log(sprintf('ERROR: %s', $exception->getMessage()));
 		}
@@ -73,11 +73,15 @@ class CreateCatalogMeatIBlockMigration extends AbstractIBlockMigration
 	{
 		$logger = new \YT\Tools\Logger\EchoLogger();
 
-		$this->deleteIBlock($environment->get('catalogMeatIBlockId'));
+		try {
+			$this->deleteIBlockType('info');
 
-		$logger->log(sprintf('IBlock catalogMeat has been removed. Id: "%s"', $this->iblockId));
+			$logger->log('IBlock type "SEO content" has been deleted');
+		} catch (\YT\Exception\Data\Migration\MigrationException $exception) {
+			$logger->log(sprintf('ERROR: %s', $exception->getMessage()));
+		}
 	}
 }
 
-$migration = new CreateCatalogMeatIBlockMigration();
+$migration = new CreateSeoIBlockTypeMigration();
 $migration->up();

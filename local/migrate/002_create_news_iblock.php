@@ -1,6 +1,6 @@
 <?php
 /**
- * Создает инфоблок «Приемущества»
+ * Создает инфоблок «Новости»
  *
  * @global $APPLICATION CMain
  */
@@ -14,7 +14,6 @@ define('STOP_STATISTICS', true);
 define('SITE_ID', 's1');
 
 if (empty($_SERVER['DOCUMENT_ROOT'])) {
-    $_SERVER['HTTP_HOST'] = 'ksk.kulichkov.pro';
     $_SERVER['DOCUMENT_ROOT'] = realpath(__DIR__ . '/../../');
 }
 
@@ -30,11 +29,11 @@ if (!CModule::IncludeModule('iblock')) {
 }
 
 /**
- * Создает инфоблок «Приемущества»
+ * Создает инфоблок «Новости»
  *
- * Class CreateHeroSliderIBlockMigration
+ * Class CreateNewsIBlockMigration
  */
-class CreateHeroSliderIBlockMigration extends AbstractIBlockMigration
+class CreateNewsIBlockMigration extends AbstractIBlockMigration
 {
     /**
      * {@inheritdoc}
@@ -47,8 +46,8 @@ class CreateHeroSliderIBlockMigration extends AbstractIBlockMigration
             $this->createIBlock(
                 array(
                     'ACTIVE'           => 'Y',
-                    'NAME'             => 'Приемущества',
-                    'CODE'             => 'advantageMain',
+                    'NAME'             => 'Новости',
+                    'CODE'             => 'news',
                     'IBLOCK_TYPE_ID'   => 'dynamic_content',
                     'SITE_ID'          => array('s1'),
                     'SORT'             => 500,
@@ -59,7 +58,7 @@ class CreateHeroSliderIBlockMigration extends AbstractIBlockMigration
             );
 
             $logger->log(
-                sprintf('IBlock has been created. Id: "%s". Add to "advantageMainIBlockId"', $this->iblockId)
+                sprintf('IBlock has been created. Id: "%s". Add to "newsIBlockId"', $this->iblockId)
             );
         } catch (\YT\Exception\Data\Migration\MigrationException $exception) {
             $logger->log(sprintf('ERROR: %s', $exception->getMessage()));
@@ -73,11 +72,13 @@ class CreateHeroSliderIBlockMigration extends AbstractIBlockMigration
     {
         $logger = new \YT\Tools\Logger\EchoLogger();
 
-        $this->deleteIBlock($environment->get('advantageMainIBlockId'));
+        $environment = \YT\Environment\EnvironmentManager::getInstance();
+
+        $this->deleteIBlock($environment->get('newsIBlockId'));
 
         $logger->log(sprintf('IBlock advantageMain has been removed. Id: "%s"', $this->iblockId));
     }
 }
 
-$migration = new CreateHeroSliderIBlockMigration();
+$migration = new CreateNewsIBlockMigration();
 $migration->up();

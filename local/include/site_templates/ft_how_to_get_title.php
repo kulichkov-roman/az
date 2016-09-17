@@ -1,0 +1,1 @@
+<i class="fa-card-icon"></i>Как получить

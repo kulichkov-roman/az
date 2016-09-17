@@ -3,78 +3,198 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 	die();
 }
 ?>
+				</div>
+				<div class="sidebar floatright">
+					<div class="sidebar-item">
+						<div class="sr-title">
+							<?$APPLICATION->IncludeComponent(
+								'bitrix:main.include',
+								'',
+								Array(
+									'AREA_FILE_SHOW' => 'file',
+									'PATH' => '/local/include/site_templates/ft_how_to_get_title.php',
+									'EDIT_TEMPLATE' => ''
+								),
+								false
+							);?>
+						</div>
+						<?$APPLICATION->IncludeComponent(
+							'bitrix:main.include',
+							'',
+							Array(
+								'AREA_FILE_SHOW' => 'file',
+								'PATH' => '/local/include/site_templates/ft_how_to_get_list.php',
+								'EDIT_TEMPLATE' => ''
+							),
+							false
+						);?>
+					</div>
+					<div class="sidebar-item">
+						<div class="sr-title">
+							<?$APPLICATION->IncludeComponent(
+								'bitrix:main.include',
+								'',
+								Array(
+									'AREA_FILE_SHOW' => 'file',
+									'PATH' => '/local/include/site_templates/ft_rating_title.php',
+									'EDIT_TEMPLATE' => ''
+								),
+								false
+							);?>
+						</div>
+						<?$APPLICATION->IncludeComponent(
+							'bitrix:main.include',
+							'',
+							Array(
+								'AREA_FILE_SHOW' => 'file',
+								'PATH' => '/local/include/site_templates/ft_rating_list.php',
+								'EDIT_TEMPLATE' => ''
+							),
+							false
+						);?>
+					</div>
+					<div class="sidebar-item">
+						<div class="sr-title">
+							<?$APPLICATION->IncludeComponent(
+								'bitrix:main.include',
+								'',
+								Array(
+									'AREA_FILE_SHOW' => 'file',
+									'PATH' => '/local/include/site_templates/ft_faq_title.php',
+									'EDIT_TEMPLATE' => ''
+								),
+								false
+							);?>
+						</div>
+						<?$APPLICATION->IncludeComponent(
+							'bitrix:main.include',
+							'',
+							Array(
+								'AREA_FILE_SHOW' => 'file',
+								'PATH' => '/local/include/site_templates/ft_faq_list.php',
+								'EDIT_TEMPLATE' => ''
+							),
+							false
+						);?>
+					</div>
+					<div class="sidebar-item">
+						<div class="sr-title">
+							<?$APPLICATION->IncludeComponent(
+								'bitrix:main.include',
+								'',
+								Array(
+									'AREA_FILE_SHOW' => 'file',
+									'PATH' => '/local/include/site_templates/ft_news_title.php',
+									'EDIT_TEMPLATE' => ''
+								),
+								false
+							);?>
+						</div>
+						<?$APPLICATION->IncludeComponent(
+							'bitrix:main.include',
+							'',
+							Array(
+								'AREA_FILE_SHOW' => 'file',
+								'PATH' => '/local/include/site_templates/ft_news_list.php',
+								'EDIT_TEMPLATE' => ''
+							),
+							false
+						);?>
+					</div>
+					<div class="sidebar-item">
+						<div class="sr-banner">
+							<?$APPLICATION->IncludeComponent(
+								'bitrix:main.include',
+								'',
+								Array(
+									'AREA_FILE_SHOW' => 'file',
+									'PATH' => '/local/include/site_templates/ft_banner.php',
+									'EDIT_TEMPLATE' => ''
+								),
+								false
+							);?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<!-- Footer -->
 		<div class="footer">
 			<div class="inner-section">
 				<div class="footer-row clearfix">
 					<div class="inner-block floatleft">
-						<ul>
-							<li>
-								<a href="#0">Займы онлайн</a>
-							</li>
-							<li>
-								<a href="#0">Экспресс займы</a>
-							</li>
-							<li>
-								<a href="#0">Займы без отказа</a>
-							</li>
-							<li>
-								<a href="#0">Под 0%</a>
-							</li>
-							<li>
-								<a href="#0">Рейтинг займов</a>
-							</li>
-						</ul>
+						<?$APPLICATION->IncludeComponent(
+							'bitrix:main.include',
+							'',
+							Array(
+								'AREA_FILE_SHOW' => 'file',
+								'PATH' => '/local/include/site_templates/ft_menu_col1.php',
+								'EDIT_TEMPLATE' => ''
+							),
+							false
+						);?>
 					</div>
 					<div class="inner-block floatleft">
-						<ul>
-							<li>
-								<a href="#0">Рейтинг займов</a>
-							</li>
-							<li>
-								<a href="#0">Вопрос ответ</a>
-							</li>
-							<li>
-								<a href="#0">Статьи</a>
-							</li>
-							<li>
-								<a href="#0">Новости</a>
-							</li>
-							<li class="on-tb-mb">
-								<a href="#0">Обратная связь</a>
-							</li>
-							<li class="on-tb-mb">
-								<a href="#0">Карта сайта</a>
-							</li>
-						</ul>
+						<?$APPLICATION->IncludeComponent(
+							'bitrix:main.include',
+							'',
+							Array(
+								'AREA_FILE_SHOW' => 'file',
+								'PATH' => '/local/include/site_templates/ft_menu_col2.php',
+								'EDIT_TEMPLATE' => ''
+							),
+							false
+						);?>
 					</div>
 					<div class="inner-block floatleft">
-						<ul>
-							<li>
-								<a href="#0">Обратная связь</a>
-							</li>
-							<li>
-								<a href="#0">Карта сайта</a>
-							</li>
-						</ul>
+						<?$APPLICATION->IncludeComponent(
+							'bitrix:main.include',
+							'',
+							Array(
+								'AREA_FILE_SHOW' => 'file',
+								'PATH' => '/local/include/site_templates/ft_menu_col3.php',
+								'EDIT_TEMPLATE' => ''
+							),
+							false
+						);?>
 					</div>
 					<div class="inner-block floatleft">
 						<div class="subscribe">
-							<form id="subscribe-form">
-								<div class="sb-title">Подписаться на рассылку:</div>
-								<div class="sub-field">
-									<input type="text" name="email" placeholder="ваш e-mail" />
-									<button type="submit" class="sub-btn"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
-								</div>
-							</form>
+							<?$APPLICATION->IncludeComponent(
+								'bitrix:main.include',
+								'',
+								Array(
+									'AREA_FILE_SHOW' => 'file',
+									'PATH' => '/local/include/site_templates/ft_subscribe.php',
+									'EDIT_TEMPLATE' => ''
+								),
+								false
+							);?>
 						</div>
 						<div class="social-block">
-							<div class="sb-title">Мы в социальных сетях:</div>
+							<div class="sb-title">
+								<?$APPLICATION->IncludeComponent(
+									'bitrix:main.include',
+									'',
+									Array(
+										'AREA_FILE_SHOW' => 'file',
+										'PATH' => '/local/include/site_templates/ft_social_title.php',
+										'EDIT_TEMPLATE' => ''
+									),
+									false
+								);?>
+							</div>
 							<div class="sb-inner">
-								<a href="#0" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-								<a href="#0" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a>
-								<a href="#0" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-								<a href="#0" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+								<?$APPLICATION->IncludeComponent(
+									'bitrix:main.include',
+									'',
+									Array(
+										'AREA_FILE_SHOW' => 'file',
+										'PATH' => '/local/include/site_templates/ft_social_list.php',
+										'EDIT_TEMPLATE' => ''
+									),
+									false
+								);?>
 							</div>
 						</div>
 					</div>
@@ -86,12 +206,11 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 							'',
 							Array(
 								'AREA_FILE_SHOW' => 'file',
-								'PATH' => '/local/include/site_templates/ft_footer_copyright.php',
+								'PATH' => '/local/include/site_templates/ft_copyright.php',
 								'EDIT_TEMPLATE' => ''
 							),
 							false
 						);?>
-						© 2016 Allzaims.ru  — все о микрозаймах и МФО. Содержание сайта не является рекомендацией или офертой и носит информационно-справочный характер. Копирование материалов разрешено только при указании индексируемой ссылки на данный портал.
 					</div>
 					<div class="footer-developer">
 						<?$APPLICATION->IncludeComponent(
@@ -99,7 +218,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 							'',
 							Array(
 								'AREA_FILE_SHOW' => 'file',
-								'PATH' => '/local/include/site_templates/ft_footer_developer.php',
+								'PATH' => '/local/include/site_templates/ft_developer.php',
 								'EDIT_TEMPLATE' => ''
 							),
 							false,

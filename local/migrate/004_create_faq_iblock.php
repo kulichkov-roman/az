@@ -1,6 +1,6 @@
 <?php
 /**
- * Создает инфоблок «Допуски и сертификаты»
+ * Создает инфоблок «Вопрос-ответ»
  *
  * @global $APPLICATION CMain
  */
@@ -14,7 +14,6 @@ define('STOP_STATISTICS', true);
 define('SITE_ID', 's1');
 
 if (empty($_SERVER['DOCUMENT_ROOT'])) {
-    $_SERVER['HTTP_HOST'] = 'ksk.kulichkov.pro';
     $_SERVER['DOCUMENT_ROOT'] = realpath(__DIR__ . '/../../');
 }
 
@@ -30,11 +29,11 @@ if (!CModule::IncludeModule('iblock')) {
 }
 
 /**
- * Создает инфоблок «Допуски и сертификаты»
+ * Создает инфоблок «Вопрос-ответ»
  *
- * Class CreateHeroSliderIBlockMigration
+ * Class CreateFaqIBlockMigration
  */
-class CreateTolerancesIBlockMigration extends AbstractIBlockMigration
+class CreateFaqIBlockMigration extends AbstractIBlockMigration
 {
     /**
      * {@inheritdoc}
@@ -47,8 +46,8 @@ class CreateTolerancesIBlockMigration extends AbstractIBlockMigration
             $this->createIBlock(
                 array(
                     'ACTIVE'           => 'Y',
-                    'NAME'             => 'Допуски и сертификаты',
-                    'CODE'             => 'rewards',
+                    'NAME'             => 'Вопрос-ответ',
+                    'CODE'             => 'faq',
                     'IBLOCK_TYPE_ID'   => 'dynamic_content',
                     'SITE_ID'          => array('s1'),
                     'SORT'             => 500,
@@ -59,7 +58,7 @@ class CreateTolerancesIBlockMigration extends AbstractIBlockMigration
             );
 
             $logger->log(
-                sprintf('IBlock has been created. Id: "%s". Add to "rewardsMainIBlockId"', $this->iblockId)
+                sprintf('IBlock has been created. Id: "%s". Add to "faqIBlockId"', $this->iblockId)
             );
         } catch (\YT\Exception\Data\Migration\MigrationException $exception) {
             $logger->log(sprintf('ERROR: %s', $exception->getMessage()));
@@ -73,11 +72,14 @@ class CreateTolerancesIBlockMigration extends AbstractIBlockMigration
     {
         $logger = new \YT\Tools\Logger\EchoLogger();
 
-        $this->deleteIBlock($environment->get('rewardsMainIBlockId'));
+        $environment = \YT\Environment\EnvironmentManager::getInstance();
+
+        $this->deleteIBlock($environment->get('faqIBlockId'));
 
         $logger->log(sprintf('IBlock rewards has been removed. Id: "%s"', $this->iblockId));
     }
 }
 
-$migration = new CreateTolerancesIBlockMigration();
+$migration = new CreateFaqIBlockMigration();
 $migration->up();
+?>
