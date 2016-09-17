@@ -1,6 +1,6 @@
 <?php
 
-namespace FH\Helper;
+namespace AZ\Helper;
 
 /**
  * Хелпер для работы c меню
