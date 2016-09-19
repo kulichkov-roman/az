@@ -15,160 +15,88 @@ use Bitrix\Main\ModuleManager;
 
 $this->setFrameMode(true);?>
 
-<div class="catalog__top">
-	<?if ($arParams['USE_FILTER'] == 'Y')
+<?/*if ($arParams['USE_FILTER'] == 'Y')
+{
+	$arFilter = array(
+		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
+		"ACTIVE" => "Y",
+		"GLOBAL_ACTIVE" => "Y",
+	);
+	if (0 < intval($arResult["VARIABLES"]["SECTION_ID"]))
 	{
-		$arFilter = array(
-			"IBLOCK_ID" => $arParams["IBLOCK_ID"],
-			"ACTIVE" => "Y",
-			"GLOBAL_ACTIVE" => "Y",
-		);
-		if (0 < intval($arResult["VARIABLES"]["SECTION_ID"]))
-		{
-			$arFilter["ID"] = $arResult["VARIABLES"]["SECTION_ID"];
-		}
-		elseif ('' != $arResult["VARIABLES"]["SECTION_CODE"])
-		{
-			$arFilter["=CODE"] = $arResult["VARIABLES"]["SECTION_CODE"];
-		}
-		$obCache = new CPHPCache();
-		if ($obCache->InitCache(36000, serialize($arFilter), "/iblock/catalog"))
-		{
-			$arCurSection = $obCache->GetVars();
-		}
-		elseif ($obCache->StartDataCache())
-		{
-			$arCurSection = array();
-			if (Loader::includeModule("iblock"))
-			{
-				$dbRes = CIBlockSection::GetList(array(), $arFilter, false, array("ID"));
-
-				if(defined("BX_COMP_MANAGED_CACHE"))
-				{
-					global $CACHE_MANAGER;
-					$CACHE_MANAGER->StartTagCache("/iblock/catalog");
-
-					if ($arCurSection = $dbRes->Fetch())
-					{
-						$CACHE_MANAGER->RegisterTag("iblock_id_".$arParams["IBLOCK_ID"]);
-					}
-					$CACHE_MANAGER->EndTagCache();
-				}
-				else
-				{
-					if(!$arCurSection = $dbRes->Fetch())
-						$arCurSection = array();
-				}
-			}
-			$obCache->EndDataCache($arCurSection);
-		}
-		if (!isset($arCurSection))
-		{
-			$arCurSection = array();
-		}
-		?>
-		<?$APPLICATION->IncludeComponent(
-			"bitrix:catalog.smart.filter",
-			"catalog",
-			array(
-				"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-				"IBLOCK_ID" => $arParams["IBLOCK_ID"],
-				"SECTION_ID" => $arCurSection['ID'],
-				"FILTER_NAME" => $arParams["FILTER_NAME"],
-				"PRICE_CODE" => $arParams["PRICE_CODE"],
-				"CACHE_TYPE" => $arParams["CACHE_TYPE"],
-				"CACHE_TIME" => $arParams["CACHE_TIME"],
-				"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-				"SAVE_IN_SESSION" => "N",
-				"XML_EXPORT" => "Y",
-				"SECTION_TITLE" => "NAME",
-				"SECTION_DESCRIPTION" => "DESCRIPTION",
-				'HIDE_NOT_AVAILABLE' => $arParams["HIDE_NOT_AVAILABLE"],
-				"TEMPLATE_THEME" => $arParams["TEMPLATE_THEME"]
-			),
-			$component,
-			array('HIDE_ICONS' => 'Y')
-		);?>
-	<?
+		$arFilter["ID"] = $arResult["VARIABLES"]["SECTION_ID"];
 	}
-	?>
-	<?
-    global $arCatalogSortBy, $arCatalogSortNames, $arCatalogSortOrder, $arPerPageCount;
-
-    $curSortBy = $_REQUEST["SORT_BY"];
-    $curOrderBy = $_REQUEST["ORDER_BY"];
-
-    if($curSortBy == "")
-    {
-	    $curSortBy = reset($arCatalogSortBy);
-    }
-    if($curOrderBy == "")
-    {
-	    $curOrderBy = "DESC";
-    }
-
-    //сортировка по популярности, не имеет смысла сортировать по убыванию
-    if($curSortBy == "SORT"){
-    	$curOrderBy = "DESC";
-    }
-
-    $activeSortByKey = intval(array_search($curSortBy, $arCatalogSortBy));
-
-    if(!$curOrderBy)
-    {
-	    $curOrderBy = $arCatalogSortOrder[$activeSortByKey];
-    }
-
-    $sortBy = $arCatalogSortBy[$activeSortByKey];
-    $orderBy = $curOrderBy;
-	?>
-	<div class="catalog__sort">
-		<span class="catalog__sort-text">Сортировать по:</span>
-		<?
-		foreach($arCatalogSortBy as $key => $sortByItem)
+	elseif ('' != $arResult["VARIABLES"]["SECTION_CODE"])
+	{
+		$arFilter["=CODE"] = $arResult["VARIABLES"]["SECTION_CODE"];
+	}
+	$obCache = new CPHPCache();
+	if ($obCache->InitCache(36000, serialize($arFilter), "/iblock/catalog"))
+	{
+		$arCurSection = $obCache->GetVars();
+	}
+	elseif ($obCache->StartDataCache())
+	{
+		$arCurSection = array();
+		if (Loader::includeModule("iblock"))
 		{
-			if($key == $activeSortByKey)
+			$dbRes = CIBlockSection::GetList(array(), $arFilter, false, array("ID"));
+			if(defined("BX_COMP_MANAGED_CACHE"))
 			{
-				$active = true;
-				$orderByItem = toggleSortOrder($curOrderBy, $curSortBy);
+				global $CACHE_MANAGER;
+				$CACHE_MANAGER->StartTagCache("/iblock/catalog");
+				if ($arCurSection = $dbRes->Fetch())
+				{
+					$CACHE_MANAGER->RegisterTag("iblock_id_".$arParams["IBLOCK_ID"]);
+				}
+				$CACHE_MANAGER->EndTagCache();
 			}
 			else
 			{
-				$active = false;
-				$orderByItem = $arCatalogSortOrder[$key];
+				if(!$arCurSection = $dbRes->Fetch())
+					$arCurSection = array();
 			}
-			if(!$active){?>
-				<a href="<?=$APPLICATION->GetCurPageParam("SORT_BY=" . $sortByItem . "&ORDER_BY=" . $orderByItem, array("SORT_BY", "ORDER_BY"))?>" class="catalog__sort-link"><?=$arCatalogSortNames[$key]?></a>
-			<?} else {?>
-				<a href="<?=$APPLICATION->GetCurPageParam("SORT_BY=" . $sortByItem . "&ORDER_BY=" . $orderByItem, array("SORT_BY", "ORDER_BY"))?>" class="catalog__sort-chosen"><?=$arCatalogSortNames[$key]?></a>
-			<?}
 		}
-		?>
-	</div>
-	<?
-	global $arPerPageCount;
-
-	itc\CUncachedArea::show('showTopPaginator');
-
-	if(isset($_GET['PER_PAGE']))
-	{
-		$perPage = intval($_GET['PER_PAGE']);
+		$obCache->EndDataCache($arCurSection);
 	}
-	else
+	if (!isset($arCurSection))
 	{
-		$perPage = ELEMENTS_COUNT;
+		$arCurSection = array();
 	}
 	?>
-</div>
-<div class="catalog__separator"></div>
-<?$intSectionID = $APPLICATION->IncludeComponent(
+	<?$APPLICATION->IncludeComponent(
+		"bitrix:catalog.smart.filter",
+		"catalog",
+		array(
+			"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+			"IBLOCK_ID" => $arParams["IBLOCK_ID"],
+			"SECTION_ID" => $arCurSection['ID'],
+			"FILTER_NAME" => $arParams["FILTER_NAME"],
+			"PRICE_CODE" => $arParams["PRICE_CODE"],
+			"CACHE_TYPE" => $arParams["CACHE_TYPE"],
+			"CACHE_TIME" => $arParams["CACHE_TIME"],
+			"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+			"SAVE_IN_SESSION" => "N",
+			"XML_EXPORT" => "Y",
+			"SECTION_TITLE" => "NAME",
+			"SECTION_DESCRIPTION" => "DESCRIPTION",
+			'HIDE_NOT_AVAILABLE' => $arParams["HIDE_NOT_AVAILABLE"],
+			"TEMPLATE_THEME" => $arParams["TEMPLATE_THEME"]
+		),
+		$component,
+		array('HIDE_ICONS' => 'Y')
+	);?>
+<?
+}*/
+?>
+<?/*$intSectionID = $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section",
 	"catalog",
 	array(
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
-		"ELEMENT_SORT_FIELD" => $sortBy,
-		"ELEMENT_SORT_ORDER" => $orderBy,
+		"ELEMENT_SORT_FIELD" => $arParams["ELEMENT_SORT_FIELD"],
+		"ELEMENT_SORT_ORDER" => $arParams["ELEMENT_SORT_ORDER"],
 		"PROPERTY_CODE" => $arParams["LIST_PROPERTY_CODE"],
 		"META_KEYWORDS" => $arParams["LIST_META_KEYWORDS"],
 		"META_DESCRIPTION" => $arParams["LIST_META_DESCRIPTION"],
@@ -248,5 +176,5 @@ $this->setFrameMode(true);?>
 		'COMPARE_PATH' => $arResult['FOLDER'].$arResult['URL_TEMPLATES']['compare']
 	),
 	$component
-);
+);*/
 ?>

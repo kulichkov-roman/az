@@ -14,6 +14,9 @@ foreach ($environment->getConfigFileNames() as $fileName) {
 	}
 }
 
+ini_set('display_errors',1);
+error_reporting(E_ERROR);
+
 // Выполнить все тесты контроля качества
 //$CQualityControl = new YT\Tools\Tests\QualityControl();
 //$CQualityControl->check();

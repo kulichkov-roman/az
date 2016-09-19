@@ -34,19 +34,25 @@
 			'w146crPlugId' => '',
 			'w362whPlugId' => '',
 			'w50whPlugId'  => '',
+			'w120р70crPlugIn'  => '',
 		)
 	)
 );
 
 if(\Bitrix\Main\Loader::includeModule('itconstruct.resizer'))
 {
-	itc\Resizer::addPreset('w146cr', array(
+	itc\Resizer::addPreset('w120р70cr', array(
 			'mode' => 'crop',
-			'width' => 146,
-			'height' => 146,
+			'width' => 120,
+			'height' => 70,
 			'type' => 'jpg'
 		)
 	);
+
+
+
+
+
 	itc\Resizer::addPreset('w250cr', array(
 			'mode' => 'crop',
 			'width' => 250,

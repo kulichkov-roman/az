@@ -13,13 +13,12 @@
 
 $this->setFrameMode(true);
 
-if($USER->isAdmin())
-{
-	//pre($arResult['ITEMS']);
-}
+$environment = \YT\Environment\EnvironmentManager::getInstance();
 ?>
 
 <?if (!empty($arResult['ITEMS'])){?>
+	
+
 	<div class="catalog__list">
 		<?foreach($arResult['ITEMS'] as $arItem){
 			$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arParams['IBLOCK_ID'], 'ELEMENT_EDIT'));
@@ -50,12 +49,6 @@ if($USER->isAdmin())
 					<img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="" class="offer-item__pic">
 					<div class="offer-item__descr">
 						<span class="offer-item__name"><?=$arItem["NAME"]?></span>
-						<?
-						/**
-						 * Цены и скидки вынесены в некешируемые области.
-						 */
-						itc\CUncachedArea::show('showElementGoodsPrice'.$arItem['ID']);
-						?>
 					</div>
 				</a>
 				<div class="offer-item__add">
@@ -71,7 +64,7 @@ if($USER->isAdmin())
 							<?=$arItem['PROPERTIES']['TIPTOVARA']['STEP'] <> '' ? 'data-step="'.$arItem['PROPERTIES']['TIPTOVARA']['STEP'].'"' : "";?>
 							<?=$arItem['PROPERTIES']['TIPTOVARA']['TYPE'] <> '' ? 'data-type="'.$arItem['PROPERTIES']['TIPTOVARA']['TYPE'].'"' : "";?>
 							type="text"
-							<?itc\CUncachedArea::show('showBasketQuantity'.$arItem['ID']);?>
+
 							maxlength="5"
 							class="offer-item__field"
 							>
@@ -83,7 +76,4 @@ if($USER->isAdmin())
 			</div>
 		<?}?>
 	</div>
-	<?if($arParams["DISPLAY_BOTTOM_PAGER"] && !isset($_GET['SHOWALL_1'])){?>
-		<?=$arResult["NAV_STRING"]?>
-	<?}?>
 <?}?>

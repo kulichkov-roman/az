@@ -1,25 +1,30 @@
- <?
+<?
 use Bitrix\Main\Type\Collection;
 use Bitrix\Currency\CurrencyTable;
+
+$environment = \YT\Environment\EnvironmentManager::getInstance();
 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
 
-$arIds = array();
+$arPictureIds = array();
+$arElementIds = array();
 foreach($arResult["ITEMS"] as &$arItem)
 {
 	if(is_array($arItem["PREVIEW_PICTURE"]))
 	{
-		$arIds[] = $arItem["PREVIEW_PICTURE"]["ID"];
+		$arPictureIds[] = $arItem["PREVIEW_PICTURE"]["ID"];
 	}
+	$arElementIds[] = $arItem['ID'];
+
 }
 unset($arItem);
 
-if(sizeof($arIds) > 0)
+if(sizeof($arPictureIds) > 0)
 {
-	$strIds = implode(",", $arIds);
+	$strIds = implode(",", $arPictureIds);
 
 	$fl = new CFile;
 
@@ -35,7 +40,7 @@ if(sizeof($arIds) > 0)
 	while($arItem = $rsFile->GetNext())
 	{
 		$arPreviewPicture[$arItem["ID"]] = $arItem;
-		$urlPreviewPicture = itc\Resizer::get($arItem["ID"], 'catalogList');
+		$urlPreviewPicture = itc\Resizer::get($arItem["ID"], 'w120р70cr');
 
 		$arPreviewPicture[$arItem["ID"]]["SRC"] = $urlPreviewPicture;
 	}
@@ -49,7 +54,7 @@ if(sizeof($arIds) > 0)
 		}
 		else
 		{
-			$arItem["PREVIEW_PICTURE"]["SRC"] = itc\Resizer::get(NO_PH_CAT_PV, 'catalogList');
+			$arItem["PREVIEW_PICTURE"]["SRC"] = itc\Resizer::get($environment->get('w120р70crPlugIn'), 'w120р70cr');
 		}
 	}
 	unset($arItem);
@@ -58,46 +63,8 @@ else
 {
 	foreach($arResult["ITEMS"] as &$arItem)
 	{
-		$arItem["PREVIEW_PICTURE"]["SRC"] = itc\Resizer::get(NO_PH_CAT_PV, 'catalogList');
+		$arItem["PREVIEW_PICTURE"]["SRC"] = itc\Resizer::get('w120р70crPlugIn', 'w120р70cr');
 	}
 	unset($arItem);
-}
-
-/**
- * Определение параметров товара
- */
-$typeElement      = '';
-$arTypeElement    = $GLOBALS["typeElement"];
-$arMeasureElement = $GLOBALS["measureElement"];
-$arMeasurePriceElement = $GLOBALS["measurePriceElement"];
-$arStepElement    = $GLOBALS["stepElement"];
-
-foreach($arResult['ITEMS'] as &$arItem)
-{
-	/**
-	 * Определить тип товара
-	 */
-	foreach($arTypeElement as $type=>$value)
-	{
-		if($type == $arItem['PROPERTIES']['TIPTOVARA']['VALUE'])
-		{
-			$typeElement = $type;
-			$arItem['PROPERTIES']['TIPTOVARA']['TYPE'] = $value;
-			break;
-		}
-	}
-
-	/**
-	 * Определить меру товара
-	 */
-	$arItem['PROPERTIES']['TIPTOVARA']['MEASURE'] = $arMeasureElement[$arItem['PROPERTIES']['TIPTOVARA']['TYPE']];
-	$arItem['PROPERTIES']['TIPTOVARA']['MEASURE_PRICE'] = $arMeasurePriceElement[$arItem['PROPERTIES']['TIPTOVARA']['TYPE']];
-
-	/**
-	 * Определить количество грамм
-	 */
-	$arItem['PROPERTIES']['TIPTOVARA']['STEP'] = $arStepElement[$typeElement];
-
-	unset($typeElement);
 }
 ?>

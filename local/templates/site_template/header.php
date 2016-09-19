@@ -44,7 +44,7 @@ IncludeTemplateLangFile(__FILE__);
 	}
 
 	$APPLICATION->AddHeadString('
-		<link rel="shortcut icon" href="/local/images/favicon.png" />
+		<link rel="shortcut icon" href="/favicon.ico" />
 	');
 	?>
 	<!--[if lt IE 9]>
