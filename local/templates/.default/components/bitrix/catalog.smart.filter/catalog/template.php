@@ -12,12 +12,31 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 
-if($USER->isAdmin())
-{
-	//echo "<pre>"; var_dump($arResult["ITEMS"]); echo "</pre>";
-}
 ?>
 
+<div class="range-wrapper clearfix">
+	<div class="re-block floatleft">
+		<div class="re-col" for="range-data1"><span>Сумма:</span> <input type="text" id="range-data1" /> <span>руб.</span></div>
+		<div class="range" id="range1"></div>
+	</div>
+	<div class="re-block floatleft">
+		<div class="re-col" for="range-data2"><span>Срок:</span> <input type="text" id="range-data2" /> <span>дней</span></div>
+		<div class="range" id="range2"></div>
+	</div>
+	<div class="re-block-select floatleft">
+		<select>
+			<option selected="selected">Способ получения</option>
+			<option>На карту</option>
+			<option>На счет в банке</option>
+			<option>Доставка на дом</option>
+		</select>
+	</div>
+	<div class="re-block floatleft">
+		<button class="btn-site grey">Показать</button>
+	</div>
+</div>
+
+<?/*?>
 <div class="catalog__show">
 	<?if($arResult["SHOW_HIT"]){?>
 		<span class="catalog__sort-text">Показать  —  </span>
@@ -38,3 +57,4 @@ if($USER->isAdmin())
 		}
 	}?>
 </div>
+<?*/?>

@@ -15,7 +15,7 @@ use Bitrix\Main\ModuleManager;
 
 $this->setFrameMode(true);?>
 
-<?/*if ($arParams['USE_FILTER'] == 'Y')
+<?if ($arParams['USE_FILTER'] == 'Y')
 {
 	$arFilter = array(
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
@@ -64,6 +64,27 @@ $this->setFrameMode(true);?>
 		$arCurSection = array();
 	}
 	?>
+	<div class="range-wrapper clearfix">
+		<div class="re-block floatleft">
+			<div class="re-col" for="range-data1"><span>Сумма:</span> <input type="text" id="range-data1" /> <span>руб.</span></div>
+			<div class="range" id="range1"></div>
+		</div>
+		<div class="re-block floatleft">
+			<div class="re-col" for="range-data2"><span>Срок:</span> <input type="text" id="range-data2" /> <span>дней</span></div>
+			<div class="range" id="range2"></div>
+		</div>
+		<div class="re-block-select floatleft">
+			<select>
+				<option selected="selected">Способ получения</option>
+				<option>На карту</option>
+				<option>На счет в банке</option>
+				<option>Доставка на дом</option>
+			</select>
+		</div>
+		<div class="re-block floatleft">
+			<button class="btn-site grey">Показать</button>
+		</div>
+	</div>
 	<?$APPLICATION->IncludeComponent(
 		"bitrix:catalog.smart.filter",
 		"catalog",
@@ -87,9 +108,9 @@ $this->setFrameMode(true);?>
 		array('HIDE_ICONS' => 'Y')
 	);?>
 <?
-}*/
+}
 ?>
-<?/*$intSectionID = $APPLICATION->IncludeComponent(
+<?$intSectionID = $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section",
 	"catalog",
 	array(
@@ -116,7 +137,7 @@ $this->setFrameMode(true);?>
 		"SET_TITLE" => $arParams["SET_TITLE"],
 		"SET_STATUS_404" => $arParams["SET_STATUS_404"],
 		"DISPLAY_COMPARE" => $arParams["USE_COMPARE"],
-		"PAGE_ELEMENT_COUNT" => $perPage,
+		"PAGE_ELEMENT_COUNT" => $arParams["PAGE_ELEMENT_COUNT"],
 		"LINE_ELEMENT_COUNT" => $arParams["LINE_ELEMENT_COUNT"],
 		"PRICE_CODE" => $arParams["PRICE_CODE"],
 		"USE_PRICE_COUNT" => $arParams["USE_PRICE_COUNT"],
@@ -176,5 +197,5 @@ $this->setFrameMode(true);?>
 		'COMPARE_PATH' => $arResult['FOLDER'].$arResult['URL_TEMPLATES']['compare']
 	),
 	$component
-);*/
+);
 ?>
