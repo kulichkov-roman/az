@@ -35,6 +35,8 @@
 			'w362whPlugId' => '',
 			'w50whPlugId'  => '',
 			'w120р70crPlugIn'  => '',
+			'w220h159crPlugId'  => '93',
+			'w640h480atPlugId'  => '',
 		)
 	)
 );
@@ -48,8 +50,20 @@ if(\Bitrix\Main\Loader::includeModule('itconstruct.resizer'))
 			'type' => 'jpg'
 		)
 	);
-
-
+	itc\Resizer::addPreset('w220h159cr', array(
+			'mode' => 'crop',
+			'width' => 220,
+			'height' => 159,
+			'type' => 'jpg'
+		)
+	);
+	itc\Resizer::addPreset('w640h480at', array(
+			'mode' => 'auto',
+			'width' => 640,
+			'height' => 480,
+			'type' => 'jpg'
+		)
+	);
 
 
 

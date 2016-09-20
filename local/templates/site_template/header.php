@@ -110,4 +110,13 @@ IncludeTemplateLangFile(__FILE__);
 		<!-- Content -->
 		<div class="content clearfix">
 			<div class="content-side floatleft">
+				<?$APPLICATION->IncludeComponent('bitrix:main.include', '',
+					Array(
+						'AREA_FILE_SHOW' => 'file',
+						'PATH' => '/local/include/site_templates/hd_breadcrambs.php',
+						'EDIT_TEMPLATE' => ''
+					),
+					false
+				);?>
 				<h1><?$APPLICATION->ShowTitle()?></h1>
+
