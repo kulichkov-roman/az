@@ -3,6 +3,17 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 	die();
 }
 ?>
+					<?$APPLICATION->IncludeComponent(
+						'bitrix:main.include',
+						'',
+						Array(
+							'AREA_FILE_SHOW' => 'file',
+							'PATH' => '/local/include/site_templates/ft_seo_description.php',
+							'EDIT_TEMPLATE' => ''
+						),
+						false,
+						Array('HIDE_ICONS' => 'Y')
+					);?>
 				</div>
 				<div class="sidebar floatright">
 					<div class="sidebar-item">
@@ -98,7 +109,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 								'PATH' => '/local/include/site_templates/ft_news_list.php',
 								'EDIT_TEMPLATE' => ''
 							),
-							false
+							false,
+							Array('HIDE_ICONS' => 'Y')
 						);?>
 					</div>
 					<div class="sidebar-item">

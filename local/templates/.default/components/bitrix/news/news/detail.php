@@ -12,6 +12,7 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
+
 <?$APPLICATION->ShowViewContent('newsDate');?>
 <div class="content-text">
 	<div class="single-news-art-wrapper">
@@ -68,3 +69,4 @@ $this->setFrameMode(true);
 		</div>
 	</div>
 </div>
+<?$APPLICATION->ShowViewContent('moreNews');?>

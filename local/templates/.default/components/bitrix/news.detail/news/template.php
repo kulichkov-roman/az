@@ -14,7 +14,7 @@ $this->setFrameMode(true);
 ?>
 
 <?$this->SetViewTarget('newsDate');?>
-	<div class="sr-news-date sigle-date"><?=$arItem['DISPLAY_ACTIVE_FROM']?></div>
+	<div class="sr-news-date sigle-date"><?=ToLower($arResult['DISPLAY_ACTIVE_FROM'])?></div>
 <?$this->EndViewTarget();?>
 
 <?if(strlen($arResult['DETAIL_TEXT'])>0){?>
@@ -22,3 +22,21 @@ $this->setFrameMode(true);
 <?} else {?>
 	<?=$arResult['PREVIEW_TEXT'];?>
 <?}?>
+
+<?$this->SetViewTarget('moreNews');?>
+	<?if(is_array($arResult['PROPERTIES']['MORE']['VALUE']) && count($arResult['PROPERTIES']['MORE']['VALUE']) > 0) {?>
+		<div class="navigation-link">
+			<div class="nl-title">Смотрите также</div>
+			<ul>
+				<?foreach ($arResult['PROPERTIES']['MORE']['VALUE'] as &$arItem) {?>
+					<li>
+						<i class="fa fa-angle-right" aria-hidden="true"></i>
+						<a target="_blank" href="<?=$arItem['LINK']?>"><?=$arItem['NAME']?></a>
+					</li>
+				<?}?>
+			</ul>
+		</div>
+	<?} ?>
+<?$this->EndViewTarget();?>
+
+

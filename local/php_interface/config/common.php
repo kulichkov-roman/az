@@ -11,7 +11,7 @@
 			'faqIBlockId'            => 3,
 			'articlesIBlockId'       => 2,
 			'catalogIBlockId'        => 4,
-			'seoSecIBlockId'         => 5,
+			'seoSecIBlockId'         => 6,
 			'catalogPageUrl'         => '/catalog/',
 			'articlesPageUrl'        => '/articles/',
 			'faqPageUrl'             => '/faq/',

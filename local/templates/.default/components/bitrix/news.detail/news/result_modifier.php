@@ -34,12 +34,52 @@ if($id <> '')
         $arResult['DETAIL_PICTURE']['SRC'] = $urlDetailPicture;
     }
 }
+
+/**
+ * Получить названия для блока смотреть также
+ */
+$arIds = array();
+
+if(is_array($arResult['PROPERTIES']['MORE']['VALUE']) && count($arResult['PROPERTIES']['MORE']['VALUE']) > 0)
+{
+    foreach ($arResult['PROPERTIES']['MORE']['VALUE'] as $id)
+    {
+        $arIds[] = $id;
+    }
+
+    $arSort = array(
+        'SORT'=>'ASC'
+    );
+    $arSelect = array(
+        'ID',
+        'NAME',
+        'CODE'
+    );
+    $arFilter = array(
+        'IBLOCK_ID' => $environment->get('newsIBlockId'),
+        'ID' => $arIds
+    );
+
+    $rsElements = CIBlockElement::GetList(
+        $arSort,
+        $arFilter,
+        false,
+        false,
+        $arSelect
+    );
+
+    $arMoreNews = array();
+    while ($arItem = $rsElements->Fetch())
+    {
+        $arMoreNews[$arItem['ID']] = $arItem;
+    }
+
+    foreach ($arResult['PROPERTIES']['MORE']['VALUE'] as &$item)
+    {
+        $item = array(
+            'NAME' => $arMoreNews[$item]['NAME'],
+            'LINK' => $environment->get('newsPageUrl').$arMoreNews[$item]['CODE'].'/'
+        );
+    }
+}
 ?>
-<?$this->SetViewTarget('roomsDetail');?>
-    <div class="page-header" style="min-height: 400px;">
-        <div style="background-image: url(<?=$arResult['DETAIL_PICTURE']['SRC']?>)">
-            <h1><?=$arResult['NAME']?></h1>
-            <a class="page-back-button" href="<?=$environment->get('roomsDir')?>"></a>
-        </div>
-    </div>
-<?$this->EndViewTarget();?>
