@@ -134,7 +134,7 @@ $APPLICATION->SetTitle('Каталог МФО');
 		"TOP_VIEW_MODE" => "SECTION",
 		"USE_ALSO_BUY" => "N",
 		"USE_COMPARE" => "N",
-		"USE_ELEMENT_COUNTER" => "N",
+		"USE_ELEMENT_COUNTER" => "Y",
 		"USE_FILTER" => "Y",
 		"USE_MAIN_ELEMENT_SECTION" => "N",
 		"USE_PRICE_COUNT" => "N",

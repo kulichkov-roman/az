@@ -1,16 +1,16 @@
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
-$APPLICATION->SetTitle('Новости');
+$APPLICATION->SetTitle('Статьи');
 ?>
 <?
 $APPLICATION->IncludeComponent(
 	"bitrix:news", 
-	"news", 
+	"articles", 
 	array(
 		"SEF_MODE" => "Y",
 		"AJAX_MODE" => "N",
 		"IBLOCK_TYPE" => "dynamic_content",
-		"IBLOCK_ID" => "1",
+		"IBLOCK_ID" => "2",
 		"NEWS_COUNT" => "5",
 		"USE_SEARCH" => "N",
 		"USE_RSS" => "N",
@@ -24,7 +24,7 @@ $APPLICATION->IncludeComponent(
 		"SORT_ORDER2" => "ASC",
 		"CHECK_DATES" => "Y",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"LIST_ACTIVE_DATE_FORMAT" => "j F Y",
 		"LIST_FIELD_CODE" => array(
 			0 => "",
 			1 => "",
@@ -70,12 +70,12 @@ $APPLICATION->IncludeComponent(
 		"PAGER_DESC_NUMBERING" => "N",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
 		"PAGER_SHOW_ALL" => "N",
-		"SEF_FOLDER" => "/news/",
+		"SEF_FOLDER" => "/articles/",
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "Y",
 		"AJAX_OPTION_HISTORY" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
-		"COMPONENT_TEMPLATE" => "news",
+		"COMPONENT_TEMPLATE" => "articles",
 		"SET_LAST_MODIFIED" => "N",
 		"ADD_ELEMENT_CHAIN" => "N",
 		"DISPLAY_DATE" => "Y",

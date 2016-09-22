@@ -143,7 +143,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 								'PATH' => '/local/include/site_templates/ft_menu_col1.php',
 								'EDIT_TEMPLATE' => ''
 							),
-							false
+							false,
+							Array('HIDE_ICONS' => 'Y')
 						);?>
 					</div>
 					<div class="inner-block floatleft">
@@ -155,7 +156,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 								'PATH' => '/local/include/site_templates/ft_menu_col2.php',
 								'EDIT_TEMPLATE' => ''
 							),
-							false
+							false,
+							Array('HIDE_ICONS' => 'Y')
 						);?>
 					</div>
 					<div class="inner-block floatleft">
@@ -167,7 +169,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 								'PATH' => '/local/include/site_templates/ft_menu_col3.php',
 								'EDIT_TEMPLATE' => ''
 							),
-							false
+							false,
+							Array('HIDE_ICONS' => 'Y')
 						);?>
 					</div>
 					<div class="inner-block floatleft">
