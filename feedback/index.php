@@ -1,12 +1,12 @@
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
-$APPLICATION->SetTitle('Главная');
+$APPLICATION->SetTitle('Форма обратной связи');
 ?>
 <?
 $APPLICATION->IncludeComponent('bitrix:main.include', '',
     Array(
         'AREA_FILE_SHOW' => 'file',
-        'PATH' => '/local/include/page_templates/pg_main.php',
+        'PATH' => '/local/include/page_templates/pg_feedback.php',
         'EDIT_TEMPLATE' => ''
     ),
     false,

@@ -22,4 +22,4 @@ error_reporting(E_ERROR);
 //$CQualityControl->check();
 
 AddEventHandler('main', 'OnEpilog', array('RequestHandler', 'Show404IfNeeded'));
-///AddEventHandler('iblock', 'OnAfterIBlockElementAdd', array('SendingEmailHandler', 'SendFeedbackForm'));
+AddEventHandler('iblock', 'OnAfterIBlockElementAdd', array('SendingEmailHandler', 'SendFeedbackForm'));

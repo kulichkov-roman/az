@@ -13,7 +13,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /** @var CBitrixComponent $component */
 $this->setFrameMode(false);
 
-$environment = \Your\Environment\EnvironmentManager::getInstance();
+$environment = \YT\Environment\EnvironmentManager::getInstance();
 
 if (!empty($arResult["ERRORS"])) {
 	ShowError(implode("<br />", $arResult["ERRORS"]));
@@ -26,28 +26,78 @@ if (strlen($arResult["MESSAGE"]) > 0) {
 	<?
 } else {
 	?>
-	<div class="form__header">
-		Приезжайте и лично оцените<br>
-		ваш новый роскошный дом
-	</div>
-	<form name="iblock_add" class="form-call-request js__call-request" action="<?=POST_FORM_ACTION_URI?>" method="post" enctype="multipart/form-data">
+
+	<form id="contact-form" name="iblock_add" action="<?=POST_FORM_ACTION_URI?>" method="post" enctype="multipart/form-data">
 		<?=bitrix_sessid_post()?>
 		<?if ($arParams["MAX_FILE_SIZE"] > 0){?>
 			<input type="hidden" name="MAX_FILE_SIZE" value="<?=$arParams["MAX_FILE_SIZE"]?>" />
 		<?}?>
-		<ul class="form__list">
-			<li class="form__item">
-				<label for="formName" class="form__label">Ваше имя</label>
-				<input type="text" name="PROPERTY[NAME][0]" class="form__input_text" id="formName" required="">
-			</li>
-			<li class="form__item">
-				<label for="formPhone" class="form__label">Телефон</label>
-				<input type="tel" name="PROPERTY[<?=$environment->get('feedbackPropPhoneId')?>][0]" class="form__input_text phone-field" placeholder="+7 (___) ___-__-__" id="formPhone" required="">
-			</li>
-			<li class="form__item form__item_btn">
-				<input type="submit" name="<?=$arParams['PREFIX_FORM']?>_iblock_submit" class="btn btn_yellow form__submit" value="Записаться на просмотр">
-			</li>
-		</ul>
+		<div class="row-field">
+			<label>Имя<span class="red-color">*</span></label>
+			<input type="text" name="PROPERTY[NAME][0]" class="form-input" />
+		</div>
+		<div class="row-field">
+			<label>E-mail<span class="red-color">*</span></label>
+			<input type="text" name="PROPERTY[24][0]"  class="form-input" />
+		</div>
+		<div class="row-field">
+			<label>Телефон</label>
+			<input type="text" name="PROPERTY[23][0]" class="form-input" />
+		</div>
+		<div class="row-field">
+			<label>Тема обращения</label>
+			<div class="re-block-select floatleft">
+				<select name="PROPERTY[29][0]">
+					<?
+					$propertyID = 29;
+
+					if (intval($propertyID) > 0) $sKey = "ELEMENT_PROPERTIES";
+					else $sKey = "ELEMENT";
+
+					foreach ($arResult["PROPERTY_LIST_FULL"][$propertyID]["ENUM"] as $key => $arEnum)
+					{
+						$checked = false;
+						if ($arParams["ID"] > 0 || count($arResult["ERRORS"]) > 0)
+						{
+							foreach ($arResult[$sKey][$propertyID] as $elKey => $arElEnum)
+							{
+								if ($key == $arElEnum["VALUE"])
+								{
+									$checked = true;
+									break;
+								}
+							}
+						}
+						else
+						{
+							if ($arEnum["DEF"] == "Y") $checked = true;
+						}
+						?><option value="<?=$key?>" <?=$checked ? " selected=\"selected\"" : ""?>><?=$arEnum["VALUE"]?></option><?
+					}
+					?>
+				</select>
+			</div>
+		</div>
+		<div class="row-field">
+			<label>Сообщение</label>
+			<textarea name="PROPERTY[PREVIEW_TEXT][0]"></textarea>
+		</div>
+		<div class="row-field last-field clearfix">
+			<div class="captcha-row clearfix">
+				<div class="cap-col floatleft">
+					<div class="cap-col-txt">Решите задачку<span class="red-color">*</span></div>
+				</div>
+				<div class="cap-col floatleft">
+					<input type="text" name="result" />
+				</div>
+				<div class="cap-col floatleft">
+					<div class="cap-col-txt">+5 = 8</div>
+				</div>
+				<div class="floatright mb-sb-btn">
+					<input type="submit" name="<?=$arParams['PREFIX_FORM']?>_iblock_submit" class="btn-site orange" value="Отправить">
+				</div>
+			</div>
+		</div>
 	</form>
 	<?
 }
