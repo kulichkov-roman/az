@@ -15,8 +15,6 @@ $this->setFrameMode(true);
 
 $environment = \YT\Environment\EnvironmentManager::getInstance();
 
-echo "<pre>"; var_dump(); echo "</pre>";
-
 ?>
 <?if (!empty($arResult['ITEMS'])){?>
 	<div class="result-wrapper">
@@ -33,7 +31,7 @@ echo "<pre>"; var_dump(); echo "</pre>";
 			<div class="result-item clearfix" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
 				<div class="co-logo floatleft">
 					<div class="img-logo">
-						<a href="<?=$arItem["PROPERTIES"]["LINK"]["VALUE"] ? $arItem["PROPERTIES"]["LINK"]["VALUE"] : '';?>">
+						<a href="<?=$arItem["DETAIL_PAGE_URL"];?>">
 							<img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" title="<?=$arItem['NAME']?>" alt="<?=$arItem['NAME']?>" />
 						</a>
 					</div>
@@ -62,11 +60,9 @@ echo "<pre>"; var_dump(); echo "</pre>";
 						<div class="co-data-name">минут</div>
 					</div>
 				</div>
-				<?if($arItem["PROPERTIES"]["LINK"]["VALUE"] <> ''){?>
-					<div class="co-data mbt-btn floatleft">
-						<a target="_blank" href="<?=$arItem["PROPERTIES"]["LINK"]["VALUE"]?>" class="btn-site orange">Оформить</a>
-					</div>
-				<?}?>
+				<div class="co-data mbt-btn floatleft">
+					<a target="_blank" href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="btn-site orange">Оформить</a>
+				</div>
 			</div>
 		<?}?>
 	</div>
