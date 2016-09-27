@@ -1,40 +1,57 @@
 <?
 $APPLICATION->IncludeComponent(
-	"yt:iblock.element.add.form",
-	"feedback",
-	Array(   
-		"SEF_MODE"                         => "N",              // Включить поддержку ЧПУ    
-		"IBLOCK_TYPE"                      => "",               // Тип инфоблока    
-		"IBLOCK_ID"                        => "",               // Инфоблок    
-		"PROPERTY_CODES"                   => "",               // Свойства, выводимые на редактирование    
-		"PROPERTY_CODES_REQUIRED"          => "",               // Свойства, обязательные для заполнения    
-		"GROUPS"                           => "",               // Группы пользователей, имеющие право на добавление/редактирование    
-		"STATUS_NEW"                       => "",               // Статус после сохранения    
-		"STATUS"                           => "",               // Редактирование возможно для статуса    
-		"LIST_URL"                         => "",               // Страница со списком своих элементов    
-		"ELEMENT_ASSOC"                    => "CREATED_BY",     // Привязка к пользователю    
-		"MAX_USER_ENTRIES"                 => "100000",         // Ограничить кол-во элементов для одного пользователя    
-		"MAX_LEVELS"                       => "100000",         // Ограничить кол-во рубрик, в которые можно добавлять элемент    
-		"LEVEL_LAST"                       => "Y",              // Разрешить добавление только на последний уровень рубрикатора    
-		"USE_CAPTCHA"                      => "",               // Использовать CAPTCHA    
-		"USER_MESSAGE_EDIT"                => "",               // Сообщение об успешном сохранении    
-		"USER_MESSAGE_ADD"                 => "",               // Сообщение об успешном добавлении    
-		"DEFAULT_INPUT_SIZE"               => "30",             // Размер полей ввода    
-		"RESIZE_IMAGES"                    => "N",              // Использовать настройки инфоблока для обработки изображений    
-		"MAX_FILE_SIZE"                    => "0",              // Максимальный размер загружаемых файлов, байт (0 - не ограничивать)    
-		"PREVIEW_TEXT_USE_HTML_EDITOR"     => "N",              // Использовать визуальный редактор для редактирования текста анонса    
-		"DETAIL_TEXT_USE_HTML_EDITOR"      => "N",              // Использовать визуальный редактор для редактирования подробного текста    
-		"CUSTOM_TITLE_NAME"                => "",               // * наименование *    
-		"CUSTOM_TITLE_TAGS"                => "",               // * теги *    
-		"CUSTOM_TITLE_DATE_ACTIVE_FROM"    => "",               // * дата начала *    
-		"CUSTOM_TITLE_DATE_ACTIVE_TO"      => "",               // * дата завершения *    
-		"CUSTOM_TITLE_IBLOCK_SECTION"      => "",               // * раздел инфоблока *    
-		"CUSTOM_TITLE_PREVIEW_TEXT"        => "",               // * текст анонса *    
-		"CUSTOM_TITLE_PREVIEW_PICTURE"     => "",               // * картинка анонса *    
-		"CUSTOM_TITLE_DETAIL_TEXT"         => "",               // * подробный текст *    
-		"CUSTOM_TITLE_DETAIL_PICTURE"      => "",               // * подробная картинка *    
-		"SEF_FOLDER"                       => "",               // Каталог ЧПУ (относительно корня сайта) 
-	)
+	"yt:iblock.element.add.form", 
+	"feedback", 
+	array(
+		"SEF_MODE" => "N",
+		"IBLOCK_TYPE" => "dynamic_content",
+		"IBLOCK_ID" => "9",
+		"PROPERTY_CODES" => array(
+			0 => "23",
+			1 => "24",
+			2 => "29",
+			3 => "NAME",
+			4 => "PREVIEW_TEXT",
+		),
+		"PROPERTY_CODES_REQUIRED" => array(
+			0 => "23",
+			1 => "24",
+			2 => "29",
+			3 => "NAME",
+			4 => "PREVIEW_TEXT",
+		),
+		"GROUPS" => array(
+			0 => "2",
+		),
+		"STATUS_NEW" => "N",
+		"STATUS" => "ANY",
+		"LIST_URL" => "",
+		"ELEMENT_ASSOC" => "CREATED_BY",
+		"MAX_USER_ENTRIES" => "100",
+		"MAX_LEVELS" => "100",
+		"LEVEL_LAST" => "Y",
+		"USE_CAPTCHA" => "N",
+		"USER_MESSAGE_EDIT" => "",
+		"USER_MESSAGE_ADD" => "",
+		"DEFAULT_INPUT_SIZE" => "30",
+		"RESIZE_IMAGES" => "N",
+		"MAX_FILE_SIZE" => "0",
+		"PREVIEW_TEXT_USE_HTML_EDITOR" => "N",
+		"DETAIL_TEXT_USE_HTML_EDITOR" => "N",
+		"CUSTOM_TITLE_NAME" => "",
+		"CUSTOM_TITLE_TAGS" => "",
+		"CUSTOM_TITLE_DATE_ACTIVE_FROM" => "",
+		"CUSTOM_TITLE_DATE_ACTIVE_TO" => "",
+		"CUSTOM_TITLE_IBLOCK_SECTION" => "",
+		"CUSTOM_TITLE_PREVIEW_TEXT" => "",
+		"CUSTOM_TITLE_PREVIEW_PICTURE" => "",
+		"CUSTOM_TITLE_DETAIL_TEXT" => "",
+		"CUSTOM_TITLE_DETAIL_PICTURE" => "",
+		"SEF_FOLDER" => "",
+		"COMPONENT_TEMPLATE" => "feedback",
+		"PREFIX_FORM" => "feedback"
+	),
+	false
 );
 ?>
 

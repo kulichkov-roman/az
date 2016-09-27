@@ -1,6 +1,6 @@
 <?
 
-namespace YT\Helper;
+namespace AZ\Helper;
 
 /**
  * Хелпер для работы со строками

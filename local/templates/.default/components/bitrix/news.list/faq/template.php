@@ -11,16 +11,29 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+
+$CStringHelper = new \AZ\Helper\StringHelper;
+
 if($arResult["ITEMS"]){?>
-    <div class="faq">
-    	<?$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
-			$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));?>
-		<?foreach($arResult["ITEMS"] as $arItem){?>
-	        <div class="faq__item" id="<?=$this->GetEditAreaId($arItem['ID']);?>"> 
-	            <div class="faq__question"><?=$arItem["PREVIEW_TEXT"]?></div>
-	            <div class="faq__answer"><?=$arItem["DETAIL_TEXT"]?></div>
-	        </div>
-        <?}?>
-    </div>
+	<div class="faq-wrapper">
+		<?foreach($arResult["ITEMS"] as $arItem){
+			$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+			$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+			?>
+			<div class="faq-item" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
+				<div class="faq-ques">
+					<?=$arItem['NAME']?>
+				</div>
+				<div class="faq-answ">
+					<?=$CStringHelper->truncateStr($arItem['PREVIEW_TEXT'], 350, '...');?>
+				</div>
+				<?if($arItem['PREVIEW_TEXT']){?>
+					<div class="faq-more alignright">
+						<a href="<?=$arItem['DETAIL_PAGE_URL']?>">Подробнее</a>
+					</div>
+				<?}?>
+			</div>
+		<?}?>
+	</div>
     <?=$arResult["NAV_STRING"]?>
 <?}?>

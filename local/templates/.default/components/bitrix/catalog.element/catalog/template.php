@@ -66,3 +66,11 @@ $this->setFrameMode(true);
         <?=$arResult['DETAIL_TEXT']?>
     </div>
 <?}?>
+<?if($arResult["PROPERTIES"]["LINK"]["VALUE"] <> ''){?>
+    <div class="now-credit-wrapper clearfix">
+        <div class="ncw-text floatleft">Оформите займ прямо сейчас!</div>
+        <div class="ncw-btn floatright">
+            <a href="<?=$arResult["PROPERTIES"]["LINK"]["VALUE"]?>" class="btn-site orange">Оформить</a>
+        </div>
+    </div>
+<?}?>
