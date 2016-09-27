@@ -13,6 +13,7 @@
 			'catalogIBlockId'        => 4,
 			'seoSecIBlockId'         => 6,
 			'feedbackIBlockId'       => 9,
+			'catalogRatingIBlockId'  => 10,
 			'feedbackPhonePropId'    => 23,
 			'feedbackEmailPropId'    => 24,
 			'feedbackSubjectTreatmentPropId' => 29,
