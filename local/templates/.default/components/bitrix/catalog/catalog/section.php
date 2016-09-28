@@ -64,49 +64,32 @@ $this->setFrameMode(true);?>
 		$arCurSection = array();
 	}
 	?>
-	<div class="range-wrapper clearfix">
-		<div class="re-block floatleft">
-			<div class="re-col" for="range-data1"><span>Сумма:</span> <input type="text" id="range-data1" /> <span>руб.</span></div>
-			<div class="range" id="range1"></div>
-		</div>
-		<div class="re-block floatleft">
-			<div class="re-col" for="range-data2"><span>Срок:</span> <input type="text" id="range-data2" /> <span>дней</span></div>
-			<div class="range" id="range2"></div>
-		</div>
-		<div class="re-block-select floatleft">
-			<select>
-				<option selected="selected">Способ получения</option>
-				<option>На карту</option>
-				<option>На счет в банке</option>
-				<option>Доставка на дом</option>
-			</select>
-		</div>
-		<div class="re-block floatleft">
-			<button class="btn-site grey">Показать</button>
-		</div>
-	</div>
 	<?$APPLICATION->IncludeComponent(
 		"bitrix:catalog.smart.filter",
 		"catalog",
 		array(
 			"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 			"IBLOCK_ID" => $arParams["IBLOCK_ID"],
-			"SECTION_ID" => $arCurSection['ID'],
+			"SECTION_ID" => $arCurSection["ID"],
 			"FILTER_NAME" => $arParams["FILTER_NAME"],
 			"PRICE_CODE" => $arParams["PRICE_CODE"],
-			"CACHE_TYPE" => $arParams["CACHE_TYPE"],
+			"CACHE_TYPE" => "A",
 			"CACHE_TIME" => $arParams["CACHE_TIME"],
-			"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+			"CACHE_GROUPS" => "N",
 			"SAVE_IN_SESSION" => "N",
 			"XML_EXPORT" => "Y",
 			"SECTION_TITLE" => "NAME",
 			"SECTION_DESCRIPTION" => "DESCRIPTION",
-			'HIDE_NOT_AVAILABLE' => $arParams["HIDE_NOT_AVAILABLE"],
-			"TEMPLATE_THEME" => $arParams["TEMPLATE_THEME"]
-		),
-		$component,
-		array('HIDE_ICONS' => 'Y')
-	);?>
+			"HIDE_NOT_AVAILABLE" => $arParams["HIDE_NOT_AVAILABLE"],
+			"TEMPLATE_THEME" => $arParams["TEMPLATE_THEME"],
+			"COMPONENT_TEMPLATE" => "visual_horizontal",
+			"SECTION_CODE" => "",
+			"DISPLAY_ELEMENT_COUNT" => "Y",
+			"SEF_MODE" => "N",
+			"PAGER_PARAMS_NAME" => "arrPager"
+	),
+	false
+);?>
 <?
 }
 ?>

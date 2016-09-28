@@ -1,53 +1,34 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
-<?
-foreach($arResult["ITEMS"] as &$arItem)
+if (isset($arParams["TEMPLATE_THEME"]) && !empty($arParams["TEMPLATE_THEME"]))
 {
-	$flag = false;
-	if ($arItem["PROPERTY_TYPE"] == "L")
+	$arAvailableThemes = array();
+	$dir = trim(preg_replace("'[\\\\/]+'", "/", dirname(__FILE__)."/themes/"));
+	if (is_dir($dir) && $directory = opendir($dir))
 	{
-		if(
-			$arItem["CODE"] == "NOVINKA" ||
-			$arItem["CODE"] == "AKTSII"  ||
-			$arItem["CODE"] == "KHIT"
-		)
+		while (($file = readdir($directory)) !== false)
 		{
-			$class = '';
+			if ($file != "." && $file != ".." && is_dir($dir.$file))
+				$arAvailableThemes[] = $file;
+		}
+		closedir($directory);
+	}
 
-			if(sizeof($arItem['VALUES']) > 0)
-			{
-				$flag = true;
-			}
-
-			switch($arItem["CODE"])
-			{
-				case 'NOVINKA':
-					$class = '_new';
-					break;
-				case 'AKTSII':
-					$class = '_promo';
-					break;
-				case 'KHIT':
-					$class = '_hit';
-					break;
-			}
-
-			foreach($arItem["VALUES"] as $val => &$ar)
-			{
-				$ar['LINK_CLASS'] = $class;
-				$ar['FILTER_LINK'] = '?'.$ar["CONTROL_NAME"]."=Y&set_filter=Показать";
-			}
-
-			if($flag)
-			{
-				$arResult["SHOW_HIT"] = true;
-			}
-			else
-			{
-				$arResult["SHOW_HIT"] = false;
-			}
+	if ($arParams["TEMPLATE_THEME"] == "site")
+	{
+		$solution = COption::GetOptionString("main", "wizard_solution", "", SITE_ID);
+		if ($solution == "eshop")
+		{
+			$theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "blue", SITE_ID);
+			$arParams["TEMPLATE_THEME"] = (in_array($theme, $arAvailableThemes)) ? $theme : "blue";
 		}
 	}
+	else
+	{
+		$arParams["TEMPLATE_THEME"] = (in_array($arParams["TEMPLATE_THEME"], $arAvailableThemes)) ? $arParams["TEMPLATE_THEME"] : "blue";
+	}
 }
-unset($arItem, $ar);
-?>
+else
+{
+	$arParams["TEMPLATE_THEME"] = "blue";
+}
