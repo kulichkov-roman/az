@@ -19,10 +19,10 @@ $(document).ready(function() {
 			min: 1,
 			max: 30000,
 			slide: function( event, ui ) {
-				$( "#range-data1" ).val(  + ui.value );
+				$( ".range-data1" ).val(  + ui.value );
 			}
 		});
-		$( "#range-data1" ).val(  + $( "#range1" ).slider( "value" ) );
+		$( ".range-data1" ).val(  + $( "#range1" ).slider( "value" ) );
 	}
 	
 	var range2 = $('#range2').length;
@@ -33,10 +33,10 @@ $(document).ready(function() {
 			min: 1,
 			max: 60,
 			slide: function( event, ui ) {
-				$( "#range-data2" ).val(  + ui.value );
+				$( ".range-data2" ).val(  + ui.value );
 			}
 		});
-		$( "#range-data2" ).val(  + $( "#range2" ).slider( "value" ) );
+		$( ".range-data2" ).val(  + $( "#range2" ).slider( "value" ) );
 	}
 	
 	

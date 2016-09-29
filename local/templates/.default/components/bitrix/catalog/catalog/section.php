@@ -88,7 +88,7 @@ $this->setFrameMode(true);?>
 			"SEF_MODE" => "N",
 			"PAGER_PARAMS_NAME" => "arrPager"
 	),
-	false
+	$component
 );?>
 <?
 }
