@@ -46,6 +46,15 @@ class SendingEmailHandler
 
             \CEvent::Send('FEEDBACK_SENT', SITE_ID, $arEventFields);
         }
+
+        if($arFields["IBLOCK_ID"] == $environment->get('subscribeIBlockId'))
+        {
+            $arEventFields = array(
+                'NAME' => $arFields['NAME'],
+            );
+
+            \CEvent::Send('SUBSCRIBE_SENT', SITE_ID, $arEventFields);
+        }
     }
 }
 ?>

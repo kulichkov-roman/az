@@ -16,6 +16,7 @@
 			'catalogRatingIBlockId'  => 10,
 			'feedbackPhonePropId'    => 23,
 			'feedbackEmailPropId'    => 24,
+			'subscribeIBlockId'      => 11,
 			'feedbackSubjectTreatmentPropId' => 29,
 			'feedbackSubjectTreatmentPropCode' => 'SUBJECT_TREATMENT',
 			'catalogPageUrl'         => '/catalog/',
