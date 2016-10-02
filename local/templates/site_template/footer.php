@@ -14,6 +14,17 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 						false,
 						Array('HIDE_ICONS' => 'Y')
 					);?>
+					<?$APPLICATION->IncludeComponent(
+						'bitrix:main.include',
+						'',
+						Array(
+							'AREA_FILE_SHOW' => 'file',
+							'PATH' => '/local/include/site_templates/ft_see_also.php',
+							'EDIT_TEMPLATE' => ''
+						),
+						false,
+						Array('HIDE_ICONS' => 'Y')
+					);?>
 				</div>
 				<div class="sidebar floatright">
 					<div class="sidebar-item">

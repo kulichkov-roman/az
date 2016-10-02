@@ -14,6 +14,7 @@
 			'seoSecIBlockId'         => 6,
 			'feedbackIBlockId'       => 9,
 			'catalogRatingIBlockId'  => 10,
+			'catalogSeeAlsoIBlockId' => 12,
 			'feedbackPhonePropId'    => 23,
 			'feedbackEmailPropId'    => 24,
 			'subscribeIBlockId'      => 11,

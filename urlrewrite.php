@@ -31,4 +31,5 @@ $arUrlRewrite = array(
 		"PATH" => "/faq/index.php",
 	),
 );
+
 ?>
