@@ -37,13 +37,13 @@
 				'404' => 'p404',
 			),
 
-			'w250crPlugId' => '',
-			'w146crPlugId' => '',
-			'w362whPlugId' => '',
-			'w50whPlugId'  => '',
-			'w120р70crPlugIn'  => '',
+			'w250crPlugId' => '301',
+			'w146crPlugId' => '301',
+			'w362whPlugId' => '301',
+			'w50whPlugId'  => '301',
+			'w120р70crPlugIn'  => '301',
 			'w220h159crPlugId'  => '93',
-			'w640h480atPlugId'  => '',
+			'w640h480atPlugId'  => '301',
 		)
 	)
 );
@@ -71,9 +71,6 @@ if(\Bitrix\Main\Loader::includeModule('itconstruct.resizer'))
 			'type' => 'jpg'
 		)
 	);
-
-
-
 	itc\Resizer::addPreset('w250cr', array(
 			'mode' => 'crop',
 			'width' => 250,

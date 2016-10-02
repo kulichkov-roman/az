@@ -31,6 +31,7 @@ $environment = \YT\Environment\EnvironmentManager::getInstance();
 		"META_DESCRIPTION" => $arParams["DETAIL_META_DESCRIPTION"],
 		"BROWSER_TITLE" => $arParams["DETAIL_BROWSER_TITLE"],
 		"BASKET_URL" => $arParams["BASKET_URL"],
+		"SET_CANONICAL_URL" => $arParams["DETAIL_SET_CANONICAL_URL"],
 		"ACTION_VARIABLE" => $arParams["ACTION_VARIABLE"],
 		"PRODUCT_ID_VARIABLE" => $arParams["PRODUCT_ID_VARIABLE"],
 		"SECTION_ID_VARIABLE" => $arParams["SECTION_ID_VARIABLE"],

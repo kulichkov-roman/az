@@ -13,9 +13,9 @@
 use Bitrix\Main\Loader;
 use Bitrix\Main\ModuleManager;
 
-$this->setFrameMode(true);?>
+$this->setFrameMode(true);
 
-<?if ($arParams['USE_FILTER'] == 'Y')
+if ($arParams['USE_FILTER'] == 'Y')
 {
 	$arFilter = array(
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
@@ -93,7 +93,8 @@ $this->setFrameMode(true);?>
 <?
 }
 ?>
-<?$intSectionID = $APPLICATION->IncludeComponent(
+<?
+$intSectionID = $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section",
 	"catalog",
 	array(
@@ -112,6 +113,7 @@ $this->setFrameMode(true);?>
 		"SECTION_ID_VARIABLE" => $arParams["SECTION_ID_VARIABLE"],
 		"PRODUCT_QUANTITY_VARIABLE" => $arParams["PRODUCT_QUANTITY_VARIABLE"],
 		"PRODUCT_PROPS_VARIABLE" => $arParams["PRODUCT_PROPS_VARIABLE"],
+		"USE_MAIN_ELEMENT_SECTION" => $arParams["USE_MAIN_ELEMENT_SECTION"],
 		"FILTER_NAME" => $arParams["FILTER_NAME"],
 		"CACHE_TYPE" => $arParams["CACHE_TYPE"],
 		"CACHE_TIME" => $arParams["CACHE_TIME"],

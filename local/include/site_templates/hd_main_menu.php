@@ -3,7 +3,7 @@ $APPLICATION->IncludeComponent(
     "bitrix:menu",
     "top",
     Array(
-        "ROOT_MENU_TYPE"           => "top",     // Тип меню для первого уровня
+        "ROOT_MENU_TYPE"           => "top",      // Тип меню для первого уровня
         "MAX_LEVEL"                => "2",        // Уровень вложенности меню
         "CHILD_MENU_TYPE"          => "left",
         "USE_EXT"                  => "Y",        // Подключать файлы с именами вида .тип_меню.menu_ext.php

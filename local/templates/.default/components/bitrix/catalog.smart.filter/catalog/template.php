@@ -12,9 +12,6 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<?
-//echo "<pre>"; var_dump($arResult["ITEMS"]); echo "</pre>";
-?>
 <div class="bx_filter range-wrapper clearfix">
 	<form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get" class="smartfilter">
 		<?foreach($arResult["HIDDEN"] as $arItem):?>
@@ -134,7 +131,7 @@ $this->setFrameMode(true);
 		}
 		?>
 		<div class="bx_filter_block">
-			<div class="re-block floatleft">
+			<div class="re-block btn-reblock floatleft">
 				<input class="btn-site grey" type="submit" id="set_filter" name="set_filter" value="Показать" />
 			</div>
 		</div>
