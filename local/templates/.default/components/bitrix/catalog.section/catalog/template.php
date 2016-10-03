@@ -59,11 +59,13 @@ $environment = \YT\Environment\EnvironmentManager::getInstance();
 						<div class="co-data-name">минут</div>
 					</div>
 				</div>
-				<?if($arItem["PROPERTIES"]["LINK"]["VALUE"]){?>
-					<div class="co-data mbt-btn floatleft">
-						<a target="_blank" href="<?=$arItem["PROPERTIES"]["LINK"]["VALUE"]?>" class="btn-site orange">Оформить</a>
-					</div>
-				<?}?>
+				<noindex>
+					<?if($arItem["PROPERTIES"]["LINK"]["VALUE"]){?>
+						<div class="co-data mbt-btn floatleft">
+							<a target="_blank" rel="nofollow" href="<?=$arItem["PROPERTIES"]["LINK"]["VALUE"]?>" class="btn-site orange">Оформить</a>
+						</div>
+					<?}?>
+				</noindex>
 			</div>
 		<?}?>
 	</div>

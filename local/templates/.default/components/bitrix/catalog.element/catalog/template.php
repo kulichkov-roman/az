@@ -54,11 +54,13 @@ $this->setFrameMode(true);
                 <div class="co-data-name">минут</div>
             </div>
         </div>
-        <?if($arResult["PROPERTIES"]["LINK"]["VALUE"] <> ''){?>
-            <div class="co-data mbt-btn floatleft">
-                <a target="_blank" href="<?=$arResult["PROPERTIES"]["LINK"]["VALUE"]?>" class="btn-site orange">Оформить</a>
-            </div>
-        <?}?>
+        <noindex>
+            <?if($arResult["PROPERTIES"]["LINK"]["VALUE"] <> ''){?>
+                <div class="co-data mbt-btn floatleft">
+                    <a rel="nofollow" target="_blank" href="<?=$arResult["PROPERTIES"]["LINK"]["VALUE"]?>" class="btn-site orange">Оформить</a>
+                </div>
+            <?}?>
+        </noindex>
     </div>
 </div>
 <?if($arResult['DETAIL_TEXT']){?>
@@ -66,11 +68,13 @@ $this->setFrameMode(true);
         <?=$arResult['DETAIL_TEXT']?>
     </div>
 <?}?>
-<?if($arResult["PROPERTIES"]["LINK"]["VALUE"] <> ''){?>
-    <div class="now-credit-wrapper clearfix">
-        <div class="ncw-text floatleft">Оформите займ прямо сейчас!</div>
-        <div class="ncw-btn floatright">
-            <a href="<?=$arResult["PROPERTIES"]["LINK"]["VALUE"]?>" class="btn-site orange">Оформить</a>
+<noindex>
+    <?if($arResult["PROPERTIES"]["LINK"]["VALUE"] <> ''){?>
+        <div class="now-credit-wrapper clearfix">
+            <div class="ncw-text floatleft">Оформите займ прямо сейчас!</div>
+            <div class="ncw-btn floatright">
+                <a rel="nofollow"    href="<?=$arResult["PROPERTIES"]["LINK"]["VALUE"]?>" class="btn-site orange">Оформить</a>
+            </div>
         </div>
-    </div>
-<?}?>
+    <?}?>
+</noindex>
