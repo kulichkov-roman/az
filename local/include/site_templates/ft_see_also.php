@@ -31,9 +31,6 @@ if ($arItem = $rsElements->Fetch())
     if(!empty($arItem['PROPERTY_LINK_VALUE']))
     {
         ?>
-        <br>
-        <br>
-        <br>
         <div class="navigation-link">
             <div class="nl-title">Смотрите также</div>
             <ul>
@@ -44,6 +41,9 @@ if ($arItem = $rsElements->Fetch())
                 <?}?>
             </ul>
         </div>
+        <br>
+        <br>
+        <br>
         <?
     }
 }

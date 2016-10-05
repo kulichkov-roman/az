@@ -3,12 +3,13 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 	die();
 }
 ?>
+
 					<?$APPLICATION->IncludeComponent(
 						'bitrix:main.include',
 						'',
 						Array(
 							'AREA_FILE_SHOW' => 'file',
-							'PATH' => '/local/include/site_templates/ft_seo_description.php',
+							'PATH' => '/local/include/site_templates/ft_see_also.php',
 							'EDIT_TEMPLATE' => ''
 						),
 						false,
@@ -19,7 +20,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 						'',
 						Array(
 							'AREA_FILE_SHOW' => 'file',
-							'PATH' => '/local/include/site_templates/ft_see_also.php',
+							'PATH' => '/local/include/site_templates/ft_seo_description.php',
 							'EDIT_TEMPLATE' => ''
 						),
 						false,

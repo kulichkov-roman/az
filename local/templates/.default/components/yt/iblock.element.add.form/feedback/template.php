@@ -85,13 +85,9 @@ if (strlen($arResult["MESSAGE"]) > 0) {
 		<div class="row-field last-field clearfix">
 			<div class="captcha-row clearfix">
 				<div class="cap-col floatleft">
-					<div class="cap-col-txt">Решите задачку<span class="red-color">*</span></div>
-				</div>
-				<div class="cap-col floatleft">
-					<input type="text" name="result" />
-				</div>
-				<div class="cap-col floatleft">
-					<div class="cap-col-txt">+5 = 8</div>
+					<input type="hidden" name="captcha_sid" value="<?=$arResult["capCode"]?>">
+					<img src="/bitrix/tools/captcha.php?captcha_sid=<?=$arResult["capCode"]?>" width="140" height="30" alt="CAPTCHA">
+					<input type="text" name="captcha_word" size="30" maxlength="50" value="" >
 				</div>
 				<div class="floatright mb-sb-btn">
 					<input type="submit" name="<?=$arParams['PREFIX_FORM']?>_iblock_submit" class="btn-site orange" value="Отправить">

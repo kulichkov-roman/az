@@ -25,9 +25,7 @@ $this->setFrameMode(true);
     <div class="result-item clearfix">
         <div class="co-logo floatleft">
             <div class="img-logo">
-                <a href="<?=$arResult["PROPERTIES"]["LINK"]["VALUE"] ? $arResult["PROPERTIES"]["LINK"]["VALUE"] : '';?>">
-                    <img src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>" title="<?=$arResult['NAME']?>" alt="<?=$arResult['NAME']?>" />
-                </a>
+                <img src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>" title="<?=$arResult['NAME']?>" alt="<?=$arResult['NAME']?>" />
             </div>
         </div>
         <div class="co-data-wr clearfix floatleft">
