@@ -40,6 +40,7 @@ $this->setFrameMode(true);
 									name="<?echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"
 									id="<?echo $arItem["VALUES"]["MIN"]["CONTROL_ID"]?>"
 									value="<?echo $arItem["VALUES"]["MIN"]["HTML_VALUE"]?>"
+									data-min-start="<?echo $arItem["VALUES"]["MIN"]["VALUE"]?>"
 									size="5"
 									onkeyup="smartFilter.keyup(this)"
 								/>
@@ -49,6 +50,7 @@ $this->setFrameMode(true);
 									name="<?echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"
 									id="<?echo $arItem["VALUES"]["MAX"]["CONTROL_ID"]?>"
 									value="<?echo $arItem["VALUES"]["MAX"]["HTML_VALUE"]?>"
+									data-max-start="<?echo $arItem["VALUES"]["MAX"]["VALUE"]?>"
 									size="5"
 									onkeyup="smartFilter.keyup(this)"
 								/>
