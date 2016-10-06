@@ -1,9 +1,7 @@
 <?
-$sSectionName = 'Каталог МФО';
-$arDirProperties = array(
-	'title' => '',
-	'description' => '',
-	'keywords' => '',
-	'robots' => 'index, follow'
+$sSectionName = "Каталог МФО";
+$arDirProperties = Array(
+   "TITLE" => "Заголовок страницы",
+   "ROBOTS" => "index, follow"
 );
 ?>

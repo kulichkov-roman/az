@@ -120,5 +120,5 @@ IncludeTemplateLangFile(__FILE__);
 						false
 					);?>
 				<?}?>
-				<h1><?$APPLICATION->ShowTitle()?></h1>
+				<h1><?$APPLICATION->ShowTitle(false)?></h1>
 
