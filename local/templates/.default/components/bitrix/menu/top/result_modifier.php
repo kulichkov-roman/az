@@ -4,11 +4,6 @@
 $CMenuHelper = new \AZ\Helper\MenuHelper();
 $environment = \YT\Environment\EnvironmentManager::getInstance();
 
-foreach($arResult as $key => $arItem)
-{
-
-}
-
 $arSort = array(
     'ID' => 'DESC'
 );
@@ -44,8 +39,6 @@ foreach($arResult as $key => $arItem){
     $arParseUrl = array_diff($arParseUrl, array(''));
 
     $code = array_pop($arParseUrl);
-
-    if($arItem['PARAMS']['UF_SHOW_MENU'] == 'N') echo $code;
 
     if(!(array_key_exists($code, $arSections) || $arItem['PARAMS']['UF_SHOW_MENU'] == 'Y'))
     {
