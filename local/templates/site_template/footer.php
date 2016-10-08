@@ -49,7 +49,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 								'PATH' => '/local/include/site_templates/ft_how_to_get_list.php',
 								'EDIT_TEMPLATE' => ''
 							),
-							false
+							false,
+							Array('HIDE_ICONS' => 'Y')
 						);?>
 					</div>
 					<div class="sidebar-item">
@@ -73,7 +74,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 								'PATH' => '/local/include/site_templates/ft_rating_list.php',
 								'EDIT_TEMPLATE' => ''
 							),
-							false
+							false,
+							Array('HIDE_ICONS' => 'Y')
 						);?>
 					</div>
 					<div class="sidebar-item">
@@ -97,7 +99,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 								'PATH' => '/local/include/site_templates/ft_faq_list.php',
 								'EDIT_TEMPLATE' => ''
 							),
-							false
+							false,
+							Array('HIDE_ICONS' => 'Y')
 						);?>
 					</div>
 					<div class="sidebar-item">
@@ -195,7 +198,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 									'PATH' => '/local/include/site_templates/ft_subscribe.php',
 									'EDIT_TEMPLATE' => ''
 								),
-								false
+								false,
+								Array('HIDE_ICONS' => 'Y')
 							);?>
 						</div>
 						<div class="social-block">

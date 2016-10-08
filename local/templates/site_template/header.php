@@ -104,7 +104,8 @@ IncludeTemplateLangFile(__FILE__);
 					'PATH' => '/local/include/site_templates/hd_main_menu.php',
 					'EDIT_TEMPLATE' => ''
 				),
-				false
+				false,
+				Array('HIDE_ICONS' => 'Y')
 			);?>
 		</div>
 		<!-- Content -->
@@ -117,7 +118,8 @@ IncludeTemplateLangFile(__FILE__);
 							'PATH' => '/local/include/site_templates/hd_breadcrambs.php',
 							'EDIT_TEMPLATE' => ''
 						),
-						false
+						false,
+						Array('HIDE_ICONS' => 'Y')
 					);?>
 				<?}?>
 				<h1><?$APPLICATION->ShowTitle(false)?></h1>

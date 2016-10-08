@@ -90,6 +90,9 @@ ul li i{
 }
 .content-text ul li{
 	margin-bottom:3px;
+	padding-left:13px;
+	position:relative;
+	background:url(../../../../images/li.png) no-repeat scroll left 7px;
 }
 .content-text ul li:last-child{
 	margin-bottom:0;
@@ -486,20 +489,46 @@ a.btn-site{
 	margin-right:15px;
 }
 .re-block-select{
-	width:172px;
+	width:168px;
 	margin-right:17px;
 }
-.re-block:last-child{
-	width:auto;
-	margin-right:0;
+.bx_filter_select_text {
+	border: 1px solid #cccccc;
+	padding:10px 10px;
+	border-radius:3px;
+	position:relative;
+}
+.bx_filter_select_text:before{
+	position: absolute;
+    top: 17px;
+    right: 10px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #A6A6A6;
+    position: absolute;
+}
+.bx_filter_select_popup{
+	width:147px;
+}
+.bx_filter_select_popup label{
+	width:147px;
+	display:block;
+	cursor:pointer;
 }
 .re-col span{
 	display:inline-block;
 	color:#5a5e67;
 }
+.btn-reblock{
+	width:auto;
+	margin-right:0;
+}
 .re-col input{
 	display:inline-block;
-	width:54px;
+	width:62px;
 	font-size:18px;
 	color:#3ead52;
 	font-weight:600;

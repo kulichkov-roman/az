@@ -32,7 +32,7 @@ $this->setFrameMode(true);
 						case "B"://NUMBERS
 						?>
 						<div class="re-block floatleft">
-							<div class="re-col" for="range-data<?=$index?>">
+							<div class="re-col range-item-<?=$index?>" for="range-data<?=$index?>">
 								<span><?=$arItem["NAME"]?>:</span>
 								<input
 									class="range-data<?=$index?>"
@@ -45,6 +45,7 @@ $this->setFrameMode(true);
 									onkeyup="smartFilter.keyup(this)"
 								/>
 								<input
+									class="range-data-max<?=$index?>"
 									style="display: none"
 									type="text"
 									name="<?echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"
