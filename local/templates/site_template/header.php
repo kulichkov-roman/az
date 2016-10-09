@@ -8,7 +8,7 @@ IncludeTemplateLangFile(__FILE__);
 <!DOCTYPE html>
 <html class="no-js" lang="<?=LANGUAGE_ID?>">
 <head>
-	<meta name="viewport" content="width=1200">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><?$APPLICATION->ShowTitle()?></title>
 	<?
 	CJSCore::Init();
