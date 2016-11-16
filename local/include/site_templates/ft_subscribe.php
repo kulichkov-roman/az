@@ -1,8 +1,37 @@
-
-<form id="subscribe-form">
-    <div class="sb-title">Подписаться на рассылку:</div>
-    <div class="sub-field">
-        <input type="text" name="email" placeholder="ваш e-mail" />
-        <button type="submit" class="sub-btn"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
-    </div>
-</form>
+<?$APPLICATION->IncludeComponent(
+	"yt:iblock.element.add.form",
+	"subscribe",
+	Array(
+		"CUSTOM_TITLE_DATE_ACTIVE_FROM" => "",
+		"CUSTOM_TITLE_DATE_ACTIVE_TO" => "",
+		"CUSTOM_TITLE_DETAIL_PICTURE" => "",
+		"CUSTOM_TITLE_DETAIL_TEXT" => "",
+		"CUSTOM_TITLE_IBLOCK_SECTION" => "",
+		"CUSTOM_TITLE_NAME" => "",
+		"CUSTOM_TITLE_PREVIEW_PICTURE" => "",
+		"CUSTOM_TITLE_PREVIEW_TEXT" => "",
+		"CUSTOM_TITLE_TAGS" => "",
+		"DEFAULT_INPUT_SIZE" => "30",
+		"DETAIL_TEXT_USE_HTML_EDITOR" => "N",
+		"ELEMENT_ASSOC" => "CREATED_BY",
+		"GROUPS" => array("2"),
+		"IBLOCK_ID" => "11",
+		"IBLOCK_TYPE" => "dynamic_content",
+		"LEVEL_LAST" => "Y",
+		"LIST_URL" => "",
+		"MAX_FILE_SIZE" => "0",
+		"MAX_LEVELS" => "100",
+		"MAX_USER_ENTRIES" => "100",
+		"PREFIX_FORM" => "subscribe",
+		"PREVIEW_TEXT_USE_HTML_EDITOR" => "N",
+		"PROPERTY_CODES" => array("NAME"),
+		"PROPERTY_CODES_REQUIRED" => array("NAME"),
+		"RESIZE_IMAGES" => "N",
+		"SEF_MODE" => "N",
+		"STATUS" => "ANY",
+		"STATUS_NEW" => "N",
+		"USER_MESSAGE_ADD" => "",
+		"USER_MESSAGE_EDIT" => "",
+		"USE_CAPTCHA" => "N"
+	)
+);?>

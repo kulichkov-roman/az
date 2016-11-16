@@ -1,1 +1,1 @@
-<img src="/local/images/banner.png" alt="" />
+<a href="https://goo.gl/EoZYTH" target="_blank" rel="nofollow"><img src="/local/images/banner.png" alt="Займер"></a>

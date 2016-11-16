@@ -2,9 +2,9 @@
 global $arrSidebarElemFilter;
 $arrSidebarElemFilter = array('PROPERTY_SHOW_RATING_PAGE_VALUE' => 'Y');
 $APPLICATION->IncludeComponent(
-	"bitrix:news.list",
-	"sidebar_right_numeric",
-	Array(
+	"bitrix:news.list", 
+	"sidebar_right_numeric", 
+	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
@@ -17,14 +17,17 @@ $APPLICATION->IncludeComponent(
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
-		"DETAIL_URL" => "/rating/",
+		"DETAIL_URL" => "/catalog/#SECTION_CODE#/#ELEMENT_CODE#/",
 		"DISPLAY_BOTTOM_PAGER" => "N",
 		"DISPLAY_DATE" => "Y",
 		"DISPLAY_NAME" => "Y",
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array("",""),
+		"FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
 		"FILTER_NAME" => "arrSidebarElemFilter",
 		"USE_FILTER" => "Y",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
@@ -44,7 +47,10 @@ $APPLICATION->IncludeComponent(
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array("",""),
+		"PROPERTY_CODE" => array(
+			0 => "",
+			1 => "",
+		),
 		"SET_BROWSER_TITLE" => "N",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "N",
@@ -55,6 +61,8 @@ $APPLICATION->IncludeComponent(
 		"SORT_BY1" => "PROPERTY_SORT_RATING",
 		"SORT_BY2" => "",
 		"SORT_ORDER1" => "asc",
-		"SORT_ORDER2" => ""
-	)
+		"SORT_ORDER2" => "",
+		"COMPONENT_TEMPLATE" => "sidebar_right_numeric"
+	),
+	false
 );?>

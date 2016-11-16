@@ -16,8 +16,8 @@ IncludeTemplateLangFile(__FILE__);
 	$environment = \YT\Environment\EnvironmentManager::getInstance();
 	$defaultSiteTemplateUrl = $environment->get('defaultSiteTemplateUrl');
 
-	$arPageClassesTemplates   = $environment->get('pageClassesTemplates');
-	$arBodyClassesTemplates   = $environment->get('bodyClassesTemplates');
+	$arPageClassesTemplates = $environment->get('pageClassesTemplates');
+	$arBodyClassesTemplates = $environment->get('bodyClassesTemplates');
 
 	$APPLICATION->SetAdditionalCSS($defaultSiteTemplateUrl . '/css/style.css');
 	$APPLICATION->SetAdditionalCSS($defaultSiteTemplateUrl . '/css/developers.css');
@@ -112,15 +112,18 @@ IncludeTemplateLangFile(__FILE__);
 		<div class="content clearfix">
 			<div class="content-side floatleft">
 				<?if(!$isMain){?>
-					<?$APPLICATION->IncludeComponent('bitrix:main.include', '',
+
+					<?
+					$APPLICATION->IncludeComponent(
+						"bitrix:breadcrumb",
+						"breadcrumb",
 						Array(
-							'AREA_FILE_SHOW' => 'file',
-							'PATH' => '/local/include/site_templates/hd_breadcrambs.php',
-							'EDIT_TEMPLATE' => ''
-						),
-						false,
-						Array('HIDE_ICONS' => 'Y')
-					);?>
+							"START_FROM"    => "0",     // Номер пункта, начиная с которого будет построена навигационная цепочка
+							"PATH"          => "",      // Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+							"SITE_ID"       => "s1",     // Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+						)
+					);
+					?>
 				<?}?>
 				<h1><?$APPLICATION->ShowTitle(false)?></h1>
 

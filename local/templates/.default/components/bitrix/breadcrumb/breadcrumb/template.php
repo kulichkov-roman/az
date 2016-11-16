@@ -5,7 +5,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if(empty($arResult))
 	return "";
 
-$strReturn = '<div class="breadcrumbs"><ul class="clearfix">';
+$strReturn = '<div class="breadcrambs"><ul class="clearfix">';
 
 $num_items = count($arResult);
 for($index = 0, $itemSize = $num_items; $index < $itemSize; $index++)

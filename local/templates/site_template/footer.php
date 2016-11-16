@@ -26,7 +26,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 						false,
 						Array('HIDE_ICONS' => 'Y')
 					);?>
-				</div>
+				</div><!--/content-side floatleft-->
 				<div class="sidebar floatright">
 					<div class="sidebar-item">
 						<div class="sr-title">
@@ -143,8 +143,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			</div><!--/content clearfix-->
+		</div><!--/wrapper-->
 		<!-- Footer -->
 		<div class="footer">
 			<div class="inner-section">
