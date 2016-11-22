@@ -61,11 +61,12 @@ $environment = \YT\Environment\EnvironmentManager::getInstance();
 					</div>
 				</div>
 				<?if($arItem["PROPERTIES"]["LINK"]["VALUE"]){?>
-					<div class="co-data mbt-btn floatleft">
-						<a target="_blank" href="<?=$arItem["PROPERTIES"]["LINK"]["VALUE"]?>" class="btn-site orange">Оформить</a>
-					</div>
+					<noindex>
+						<div class="co-data mbt-btn floatleft">
+							<a rel="nofollow" target="_blank" href="<?=$arItem["PROPERTIES"]["LINK"]["VALUE"]?>" class="btn-site orange">Оформить</a>
+						</div>
+					</noindex>
 				<?}?>
-
 			</div>
 		<?}?>
 	</div>
