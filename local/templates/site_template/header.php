@@ -9,7 +9,12 @@ IncludeTemplateLangFile(__FILE__);
 <html class="no-js" lang="<?=LANGUAGE_ID?>">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="cmsmagazine" content="f3a6695dfcc9f3ed1b584c8b48702bc0" />
+	<link rel="manifest" href="/manifest.json">
 	<title><?$APPLICATION->ShowTitle()?></title>
+	<?if(strpos($APPLICATION->GetCurDir(), 'catalog')):?>
+	<link rel="canonical" href="https://allzaims.ru<?=$APPLICATION->GetCurDir();?>">
+ 	<?endif;?>
 	<?
 	CJSCore::Init();
 
@@ -29,6 +34,7 @@ IncludeTemplateLangFile(__FILE__);
 	$APPLICATION->AddHeadScript($defaultSiteTemplateUrl . '/js/ui.punch.js');
 	$APPLICATION->AddHeadScript($defaultSiteTemplateUrl . '/js/jquery.fs.selecter.min.js');
 	$APPLICATION->AddHeadScript($defaultSiteTemplateUrl . '/js/custom.js');
+	$APPLICATION->AddHeadScript($defaultSiteTemplateUrl . '/js/jquery.simplemodal.js');
 
 	$APPLICATION->AddHeadScript($defaultSiteTemplateUrl . '/js/developers.js');
 
@@ -126,4 +132,16 @@ IncludeTemplateLangFile(__FILE__);
 					?>
 				<?}?>
 				<h1><?$APPLICATION->ShowTitle(false)?></h1>
-
+<?
+$APPLICATION->IncludeComponent(
+					"bitrix:main.include", 
+					"", 
+					array(
+						"AREA_FILE_SHOW" => "page",
+						"AREA_FILE_SUFFIX" => "inc",
+						"EDIT_TEMPLATE" => "",
+						"COMPONENT_TEMPLATE" => "catalog_top"
+					),
+					false
+				);
+?>
